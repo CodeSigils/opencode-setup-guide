@@ -1,6 +1,13 @@
 # OpenCode
 
-*An open source AI coding agent*
+```
+   __                             _             
+  / /  ___   __ _   ___   ___   | |__   _  _  
+ / _ \/ -_) / _` | / -_)/ _ \  | / /  | || | 
+/_/ \_\\___| \__,_| \___| \_/  |_|_\_   \_||_| 
+                                           
+```
+*The open source AI coding agent* (144K GitHub stars)
 
 # OpenCode Setup Guide
 
