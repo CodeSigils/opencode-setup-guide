@@ -341,10 +341,9 @@ When writing ANY markdown documentation file:
    - Improves readability on narrow screens
 
 2. **Code blocks**: Use proper syntax highlighting
-   ```markdown
-   ```javascript
-   // code here
-   ```
+
+   ```json
+   { "key": "value" }
    ```
 
 3. **Lists with content**: Each item on new line
