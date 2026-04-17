@@ -157,6 +157,7 @@ All content is provided **as-is** without any warranty:
 - [Community Docs (open-code.ai)](https://open-code.ai) - Unofficial docs
 - [Beginner Guide](https://help.apiyi.com/en/opencode-ai-coding-agent-beginner-guide-2026-en.html)
 - [OpenCode vs Claude Code vs Cursor vs Windsurf](https://www.shareuhack.com/en/posts/cursor-vs-claude-code-vs-windsurf-2026) - Comparison guide
+- [awesome-opencode](https://github.com/awesome-opencode/awesome-opencode) - Curated resources
 
 ## License
 
