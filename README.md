@@ -135,6 +135,7 @@ All content is provided **as-is** without any warranty:
 ## Sources
 
 - [OpenCode + Docker Model Runner: Private AI Coding](https://www.docker.com/blog/opencode-docker-model-runner-private-ai-coding/)
+- [OpenCode LLMs Comparison](https://www.glukhov.org/ai-devtools/opencode/llms-comparison/)
 
 ## License
 
