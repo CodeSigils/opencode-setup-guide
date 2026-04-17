@@ -156,7 +156,20 @@ Choose models based on task complexity:
 
 **Strategy**: Use big-pickle for complex reasoning, nano for quick lookups.
 
-### 3.5 Sisyphus Settings
+### 3.5 What is Sisyphus?
+
+**Sisyphus** is the main task orchestrator in OpenCode. It's responsible for:
+
+- Breaking down tasks into manageable subtasks
+- Delegating work to specialized subagents
+- Coordinating parallel execution
+- Managing task timeouts and concurrency
+
+Think of Sisyphus as your project manager - it plans, delegates, and supervises all the work.
+
+### 3.6 Sisyphus Settings
+
+**Where to configure**: In `~/.config/opencode/oh-my-openagent.json`
 
 ```json
 {
@@ -168,11 +181,15 @@ Choose models based on task complexity:
 }
 ```
 
-| Setting | Description |
-| :--- | :--- |
-| `enabled` | Enable/disable Sisyphus |
-| `max_concurrent_tasks` | Maximum parallel tasks |
-| `task_timeout` | Timeout in seconds |
+| Setting | Description | Recommended |
+| :--- | :--- | :--- |
+| `enabled` | Enable/disable Sisyphus | `true` |
+| `max_concurrent_tasks` | Maximum parallel tasks Sisyphus can run | 2-3 |
+| `task_timeout` | Timeout in seconds per task | 300 (5 min) |
+
+**Why these settings?**
+- `max_concurrent_tasks: 2`: Prevents overwhelming system resources while allowing parallelism
+- `task_timeout: 300`: Most tasks should complete within 5 minutes; longer tasks may need human intervention
 
 ---
 

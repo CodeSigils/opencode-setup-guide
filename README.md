@@ -1,4 +1,6 @@
-![OpenCode](https://opencode.ai/logo.png)
+# OpenCode
+
+*An open source AI coding agent*
 
 # OpenCode Setup Guide
 
