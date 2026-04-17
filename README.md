@@ -1,12 +1,7 @@
 # OpenCode
 
-```
-   __                             _             
-  / /  ___   __ _   ___   ___   | |__   _  _  
- / _ \/ -_) / _` | / -_)/ _ \  | / /  | || | 
-/_/ \_\\___| \__,_| \___| \_/  |_|_\_   \_||_| 
-                                           
-```
+![OpenCode Logo](https://raw.githubusercontent.com/anomalyco/opencode/dev/packages/console/app/src/asset/logo-ornate-light.svg)
+
 *The open source AI coding agent* (144K GitHub stars)
 
 # OpenCode Setup Guide
