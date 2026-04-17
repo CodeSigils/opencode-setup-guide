@@ -195,14 +195,25 @@ Choose models based on task complexity:
 - **OpenCode Zen** (`minimax-m2.5-free`) - Free curated models
 - **OpenCode built-in** (`opencode/*`) - Free built-in models
 
-> **Cost Tip**: Use `gpt-5-nano` for trivial tasks to save resources. Reserve `minimax-m2.5-free` for complex reasoning tasks.
+> **Cost Tip**: Use `gpt-5-nano` for trivial tasks to save resources. Reserve larger models for complex reasoning tasks.
 
-| Model | Best For | Cost |
+| Model | Best For | Error Rate |
 | :--- | :--- | :--- |
-| `minimax-m2.5-free` | Main reasoning, orchestration | Free (6.3% error rate) |
-| `opencode/gpt-5-nano` | Quick tasks, exploration | Free | |
+| `opencode/big-pickle` | Main reasoning, orchestration | 12.3% (fast, researches first) |
+| `minimax-m2.5-free` | Higher accuracy needs | 6.3% (more accurate) |
+| `opencode/gpt-5-nano` | Quick tasks, exploration | N/A |
 
-**Strategy**: Use minimax-m2.5-free for complex reasoning, gpt-5-nano for quick lookups.
+**Strategy**: Use big-pickle for daily use, gpt-5-nano for quick lookups.
+
+**Why big-pickle over minimax?**
+- **Faster** - Completed tasks in 1m 17s vs 1m 35s
+- **Research-first approach** - Used Exa Code Search before coding
+- **12.3% error rate** - Still very usable for most tasks
+
+**When to use minimax-m2.5-free instead:**
+- When higher accuracy is critical (6.3% vs 12.3%)
+- Strict tasks like migration maps or schema generation
+- The benchmark showed half the error rate on structured outputs
 
 ### 3.5 What is Sisyphus?
 
