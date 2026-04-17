@@ -1,11 +1,12 @@
-```
-╔═══════════════════════════════════════════════════════════════════════╗
-║                          AWESOME OPENCODE                             ║
-║              A Production-Ready OpenCode Configuration                ║
-╚═══════════════════════════════════════════════════════════════════════╝
-```
+![OpenCode](https://opencode.ai/logo.png)
 
 # OpenCode Setup Guide
+
+> ⚠️ This repository is for **learning purposes** and will be **updated continuously** as I explore more OpenCode features.
+
+**Last Updated**: April 2026
+
+---
 
 A comprehensive, production-ready OpenCode configuration that demonstrates 
 some of the amazing OpenCode's capabilities.
