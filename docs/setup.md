@@ -128,21 +128,21 @@ Each agent can have its own model. This lets you assign powerful models to compl
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/master/assets/oh-my-openagent.schema.json",
   "agents": {
-    "sisyphus": { "model": "opencode/big-pickle" },
-    "oracle": { "model": "opencode/big-pickle" },
-    "librarian": { "model": "opencode/big-pickle" },
+    "sisyphus": { "model": "minimax-m2.5-free" },
+    "oracle": { "model": "minimax-m2.5-free" },
+    "librarian": { "model": "minimax-m2.5-free" },
     "explore": { "model": "opencode/gpt-5-nano" },
-    "metis": { "model": "opencode/big-pickle" },
-    "momus": { "model": "opencode/big-pickle" },
-    "atlas": { "model": "opencode/big-pickle" },
-    "prometheus": { "model": "opencode/big-pickle" }
+    "metis": { "model": "minimax-m2.5-free" },
+    "momus": { "model": "minimax-m2.5-free" },
+    "atlas": { "model": "minimax-m2.5-free" },
+    "prometheus": { "model": "minimax-m2.5-free" }
   },
   "categories": {
-    "visual-engineering": { "model": "opencode/big-pickle" },
-    "ultrabrain": { "model": "opencode/big-pickle" },
-    "deep": { "model": "opencode/big-pickle" },
-    "artistry": { "model": "opencode/big-pickle" },
-    "unspecified-high": { "model": "opencode/big-pickle" },
+    "visual-engineering": { "model": "minimax-m2.5-free" },
+    "ultrabrain": { "model": "minimax-m2.5-free" },
+    "deep": { "model": "minimax-m2.5-free" },
+    "artistry": { "model": "minimax-m2.5-free" },
+    "unspecified-high": { "model": "minimax-m2.5-free" },
     "quick": { "model": "opencode/gpt-5-nano" }
   },
   "sisyphus": {
@@ -185,25 +185,24 @@ Choose models based on task complexity:
 
 | Complexity | Recommended Models | Cost | Speed |
 | :--- | :--- | :--- | :--- |
-| **Simple** | `opencode/gpt-5-nano` | Low | Fast |
-| **Medium** | `opencode/big-pickle` | Medium | Medium |
-| **Complex** | `ollama-cloud/qwen3-next:80b` | Higher | Slower |
-| **Research** | `ollama-cloud/deepseek-v3.2` | Medium | Medium |
+| **Simple** | `opencode/gpt-5-nano` | Free | Fast |
+| **Medium** | `minimax-m2.5-free` | Free | Medium |
+| **Complex** | `minimax-m2.5-free` | Free | Medium |
+
+> **Note**: This setup uses free models from OpenCode Zen. No API keys required.
 
 **Model sources**:
-- **OpenCode models** (`opencode/*`) - Built-in models
-- **Ollama Cloud** (`ollama-cloud/*`) - Remote Ollama instances
-- **OpenAI/Anthropic** - Via OpenCode's API configuration
+- **OpenCode Zen** (`minimax-m2.5-free`) - Free curated models
+- **OpenCode built-in** (`opencode/*`) - Free built-in models
 
-> **Cost Tip**: Use `gpt-5-nano` for trivial tasks to save resources. Reserve larger models for complex reasoning tasks.
+> **Cost Tip**: Use `gpt-5-nano` for trivial tasks to save resources. Reserve `minimax-m2.5-free` for complex reasoning tasks.
 
 | Model | Best For | Cost |
 | :--- | :--- | :--- |
-| `opencode/big-pickle` | Main reasoning, orchestration | Best |
-| `opencode/gpt-5-nano` | Quick tasks, exploration | Free |
-| `opencode/minimax-m2.5-free` | Fast cheap tasks | Free |
+| `minimax-m2.5-free` | Main reasoning, orchestration | Free (6.3% error rate) |
+| `opencode/gpt-5-nano` | Quick tasks, exploration | Free | |
 
-**Strategy**: Use big-pickle for complex reasoning, nano for quick lookups.
+**Strategy**: Use minimax-m2.5-free for complex reasoning, gpt-5-nano for quick lookups.
 
 ### 3.5 What is Sisyphus?
 
@@ -265,11 +264,11 @@ Add the `prompt_append` option to any agent:
 {
   "agents": {
     "sisyphus": {
-      "model": "opencode/big-pickle",
+      "model": "minimax-m2.5-free",
       "prompt_append": "file://~/.config/opencode/directives.md"
     },
     "oracle": {
-      "model": "opencode/big-pickle",
+      "model": "minimax-m2.5-free",
       "prompt_append": "file://~/.config/opencode/directives.md"
     }
   }

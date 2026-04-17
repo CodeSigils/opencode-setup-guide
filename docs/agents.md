@@ -60,33 +60,33 @@ OpenCode supports multiple model sources. Each agent can use a different model b
 
 | Source | Prefix | Description |
 | :--- | :--- | :--- |
-| **OpenCode built-in** | `opencode/*` | Optimized models (big-pickle, gpt-5-nano) |
-| **Ollama Cloud** | `ollama-cloud/*` | Remote Ollama instances |
+| **OpenCode built-in** | `opencode/*` | Optimized models (gpt-5-nano) |
+| **OpenCode Zen** | `minimax-m2.5-free` | Free curated models |
 | **OpenAI** | `openai/*` | GPT models via API |
 | **Anthropic** | `anthropic/*` | Claude models via API |
 
 ### Recommended Configuration
 
-This configuration balances capability with cost efficiency:
+This configuration uses **free models from OpenCode Zen** - no API keys needed:
 
 ```json
 {
   "agents": {
-    "sisyphus": { "model": "ollama-cloud/qwen3-next:80b" },
-    "oracle": { "model": "ollama-cloud/qwen3-next:80b" },
-    "librarian": { "model": "ollama-cloud/deepseek-v3.2" },
+    "sisyphus": { "model": "minimax-m2.5-free" },
+    "oracle": { "model": "minimax-m2.5-free" },
+    "librarian": { "model": "minimax-m2.5-free" },
     "explore": { "model": "opencode/gpt-5-nano" },
-    "metis": { "model": "ollama-cloud/qwen3-next:80b" },
-    "momus": { "model": "ollama-cloud/qwen3-next:80b" }
+    "metis": { "model": "minimax-m2.5-free" },
+    "momus": { "model": "minimax-m2.5-free" }
   },
   "categories": {
-    "visual-engineering": { "model": "ollama-cloud/gemma3:27b" },
-    "ultrabrain": { "model": "ollama-cloud/qwen3-next:80b" },
-    "deep": { "model": "ollama-cloud/qwen3-next:80b" },
+    "visual-engineering": { "model": "minimax-m2.5-free" },
+    "ultrabrain": { "model": "minimax-m2.5-free" },
+    "deep": { "model": "minimax-m2.5-free" },
     "quick": { "model": "opencode/gpt-5-nano" },
     "unspecified-low": { "model": "opencode/gpt-5-nano" },
-    "unspecified-high": { "model": "ollama-cloud/qwen3-next:80b" },
-    "artistry": { "model": "ollama-cloud/qwen3-next:80b" }
+    "unspecified-high": { "model": "minimax-m2.5-free" },
+    "artistry": { "model": "minimax-m2.5-free" }
   }
 }
 ```
@@ -95,21 +95,19 @@ This configuration balances capability with cost efficiency:
 
 | Agent | Model | Purpose | When to Use |
 | :--- | :--- | :--- | :--- |
-| **sisyphus** | qwen3-next:80b | Main orchestrator | Most tasks - the default worker |
-| **oracle** | qwen3-next:80b | Debugging & architecture | Complex bugs, design decisions |
-| **librarian** | deepseek-v3.2 | Documentation lookup | Finding library docs, examples |
+| **sisyphus** | minimax-m2.5-free | Main orchestrator | Most tasks - the default worker |
+| **oracle** | minimax-m2.5-free | Debugging & architecture | Complex bugs, design decisions |
+| **librarian** | minimax-m2.5-free | Documentation lookup | Finding library docs, examples |
 | **explore** | gpt-5-nano | Fast codebase search | Quick lookups, pattern finding |
-| **metis** | qwen3-next:80b | Pre-planning analysis | Before complex implementations |
-| **momus** | qwen3-next:80b | Plan review/critique | After significant work, before delivery |
+| **metis** | minimax-m2.5-free | Pre-planning analysis | Before complex implementations |
+| **momus** | minimax-m2.5-free | Plan review/critique | After significant work, before delivery |
 
 ### Model Selection Rationale
 
 | Model | Why for Specific Agents |
 | :--- | :--- |
-| **qwen3-next:80b** | Best open reasoning model - ideal for complex orchestration, debugging, planning |
-| **deepseek-v3.2** | Excellent at documentation tasks - better at finding and summarizing info |
-| **gpt-5-nano** | Fast and free - perfect for quick exploration tasks that don't need deep reasoning |
-| **gemma3:27b** | Good vision capabilities - useful for frontend/UI tasks |
+| **minimax-m2.5-free** | Best free model - 6.3% error rate on real benchmarks |
+| **gpt-5-nano** | Fast and free - perfect for quick exploration tasks |
 
 ### Category Model Mapping
 
@@ -117,13 +115,13 @@ When you use `task(category="...")`, OpenCode routes to these models:
 
 | Category | Model | Best For | Example Tasks |
 | :--- | :--- | :--- | :--- |
-| **visual-engineering** | gemma3:27b | Frontend, UI/UX | React components, CSS, layouts |
-| **ultrabrain** | qwen3-next:80b | Hard logic | Algorithms, optimizations, complex refactoring |
-| **deep** | qwen3-next:80b | Research | Investigating libraries, patterns, new technologies |
+| **visual-engineering** | minimax-m2.5-free | Frontend, UI/UX | React components, CSS, layouts |
+| **ultrabrain** | minimax-m2.5-free | Hard logic | Algorithms, optimizations, complex refactoring |
+| **deep** | minimax-m2.5-free | Research | Investigating libraries, patterns, new technologies |
 | **quick** | gpt-5-nano | Trivial tasks | Typos, small fixes, simple edits |
 | **unspecified-low** | gpt-5-nano | Low effort | Simple changes |
-| **unspecified-high** | qwen3-next:80b | Complex unknown | Ambiguous requirements |
-| **artistry** | qwen3-next:80b | Creative | Unconventional solutions, novel approaches |
+| **unspecified-high** | minimax-m2.5-free | Complex unknown | Ambiguous requirements |
+| **artistry** | minimax-m2.5-free | Creative | Unconventional solutions, novel approaches |
 
 ---
 
@@ -194,15 +192,16 @@ The "Seatbelt Pattern" is the community-recommended approach to permissions:
 
 | Principle | Explanation |
 | :--- | :--- |
-| **Primary model** | Use Ollama Cloud models for heavy reasoning |
+| **Primary model** | Use free models from OpenCode Zen for heavy reasoning |
 | **Cost optimization** | Use `gpt-5-nano` for trivial/quick tasks |
 | **Open-weight first** | Prefer open models over closed APIs |
 
-**Recommended models**:
-- `qwen3-next:80b` - Best open reasoning model
-- `gemma3:27b` - Good for vision/multimodal
-- `deepseek-v3.2` - Excellent for documentation
+**Recommended free models**:
+- `minimax-m2.5-free` - Best overall (6.3% error rate on benchmarks)
 - `gpt-5-nano` - Fast and free for simple tasks
+- `nemotron-3-super-free` - Strong alternative (9.0% error rate)
+
+Based on [LLM benchmarks](https://www.glukhov.org/ai-devtools/opencode/llms-comparison/) for OpenCode.
 
 ### 3. Hook Customization
 

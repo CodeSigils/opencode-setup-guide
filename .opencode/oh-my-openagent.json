@@ -1,14 +1,14 @@
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/master/assets/oh-my-openagent.schema.json",
   "agents": {
-    "sisyphus": { "model": "opencode/big-pickle", "prompt_append": "file://~/.config/opencode/directives.md" },
-    "oracle": { "model": "opencode/big-pickle", "prompt_append": "file://~/.config/opencode/directives.md" },
-    "librarian": { "model": "opencode/big-pickle" },
+    "sisyphus": { "model": "minimax-m2.5-free", "prompt_append": "file://~/.config/opencode/directives.md" },
+    "oracle": { "model": "minimax-m2.5-free", "prompt_append": "file://~/.config/opencode/directives.md" },
+    "librarian": { "model": "minimax-m2.5-free" },
     "explore": { "model": "opencode/gpt-5-nano" },
-    "metis": { "model": "opencode/big-pickle" },
-    "momus": { "model": "opencode/big-pickle" },
-    "atlas": { "model": "opencode/big-pickle" },
-    "prometheus": { "model": "opencode/big-pickle" }
+    "metis": { "model": "minimax-m2.5-free" },
+    "momus": { "model": "minimax-m2.5-free" },
+    "atlas": { "model": "minimax-m2.5-free" },
+    "prometheus": { "model": "minimax-m2.5-free" }
   },
   "sisyphus": {
     "enabled": true,
@@ -16,11 +16,11 @@
     "task_timeout": 300
   },
   "categories": {
-    "visual-engineering": { "model": "opencode/big-pickle" },
-    "ultrabrain": { "model": "opencode/big-pickle" },
-    "deep": { "model": "opencode/big-pickle" },
-    "artistry": { "model": "opencode/big-pickle" },
-    "unspecified-high": { "model": "opencode/big-pickle" },
+    "visual-engineering": { "model": "minimax-m2.5-free" },
+    "ultrabrain": { "model": "minimax-m2.5-free" },
+    "deep": { "model": "minimax-m2.5-free" },
+    "artistry": { "model": "minimax-m2.5-free" },
+    "unspecified-high": { "model": "minimax-m2.5-free" },
     "quick": { "model": "opencode/gpt-5-nano" }
   }
 }

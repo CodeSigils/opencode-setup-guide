@@ -57,15 +57,16 @@ This guide includes the **oh-my-openagent** plugin - a popular enhancement that 
 
 ### Open-Weight Models - No API Keys Needed
 
-This configuration uses **open-weight models** from Ollama Cloud - no paid API keys required:
+This configuration uses **free open-weight models** from OpenCode Zen - no paid API keys required:
 
-| Model | Purpose |
-| :--- | :--- |
-| **qwen3-next:80b** | Main reasoning, orchestration (best open model) |
-| **gpt-5-nano** | Quick tasks (free, built-in) |
-| **gemma3:27b** | Vision tasks |
+| Model | Purpose | Benchmark |
+| :--- | :--- | :--- |
+| **minimax-m2.5-free** | Main reasoning (recommended) | 6.3% error rate |
+| **gpt-5-nano** | Quick tasks (free, built-in) | N/A |
 
-**Why open-weight?**
+Based on [LLM benchmarks](https://www.glukhov.org/ai-devtools/opencode/llms-comparison/), minimax-m2.5-free is one of the best free models for OpenCode, with only 6.3% error rate on real-world tasks.
+
+**Why free models?**
 - Free to use - no API costs
 - Privacy - code stays local
 - No vendor lock-in
