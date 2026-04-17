@@ -55,6 +55,22 @@ This guide includes the **oh-my-openagent** plugin - a popular enhancement that 
 | **Metis** | Pre-planning analysis |
 | **Momus** | Plan review and critique |
 
+### Open-Weight Models - No API Keys Needed
+
+This configuration uses **open-weight models** from Ollama Cloud - no paid API keys required:
+
+| Model | Purpose |
+| :--- | :--- |
+| **qwen3-next:80b** | Main reasoning, orchestration (best open model) |
+| **gpt-5-nano** | Quick tasks (free, built-in) |
+| **gemma3:27b** | Vision tasks |
+
+**Why open-weight?**
+- Free to use - no API costs
+- Privacy - code stays local
+- No vendor lock-in
+- Self-hosting supported
+
 ---
 
 ## Key Concepts
