@@ -133,6 +133,28 @@ This skill is practical because it:
 3. Can run on-demand when editing `.md` files
 4. Works with pre-commit hooks for automation
 
+### Automation: Pre-commit Hook
+
+Skills can be combined with git hooks for automation:
+
+**File:** `.git/hooks/pre-commit`
+
+```bash
+#!/bin/bash
+# Lint markdown files on commit
+
+MARKDOWN_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.md$')
+
+for file in $MARKDOWN_FILES; do
+    npx markdownlint "$file"
+done
+```
+
+This setup provides:
+- **On-demand linting**: Run skill manually
+- **Automatic linting**: Pre-commit hook catches issues
+- **CI integration**: Can add to CI pipeline
+
 ---
 
 ## Where Skills Live
