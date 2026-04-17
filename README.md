@@ -134,8 +134,29 @@ All content is provided **as-is** without any warranty:
 
 ## Sources
 
-- [OpenCode + Docker Model Runner: Private AI Coding](https://www.docker.com/blog/opencode-docker-model-runner-private-ai-coding/)
+### Official
+
+- [OpenCode Website](https://opencode.ai) - Main site with downloads
+- [OpenCode Documentation](https://dev.opencode.ai/docs) - Official docs
+- [OpenCode GitHub](https://github.com/anomalyco/opencode) - Source code
+- [OpenCode Download](https://opencode.ai/download) - Desktop apps
+
+### Tutorials & Guides
+
+- [OpenCode Tutorial - Getting Started](https://opencode-tutorial.com/en/getting-started) - Your first commands
+- [OpenCode Tutorial 2026](https://www.nxcode.io/resources/news/opencode-tutorial-2026) - Complete setup guide
+- [OpenCode Setup Guide - ComputingForGeeks](https://computingforgeeks.com/setup-opencode-ai-coding-agent/) - Full reference (TUI, agents, MCP, LSP)
+- [The Definitive Guide to OpenCode](https://reading.sh/the-definitive-guide-to-opencode-from-first-install-to-production-workflows-aae1e95855fb) - Comprehensive guide by JP Caparas
+- [FreeCodeCamp: Integrate AI into Terminal](https://www.freecodecamp.org/news/integrate-ai-into-your-terminal-using-opencode/)
+- [Custom Agents Guide](https://docs.bswen.com/blog/2026-03-30-opencode-custom-agents/)
+
+### Community
+
+- [OpenCode + Docker Model Runner](https://www.docker.com/blog/opencode-docker-model-runner-private-ai-coding/)
 - [OpenCode LLMs Comparison](https://www.glukhov.org/ai-devtools/opencode/llms-comparison/)
+- [Community Docs (open-code.ai)](https://open-code.ai) - Unofficial docs
+- [Beginner Guide](https://help.apiyi.com/en/opencode-ai-coding-agent-beginner-guide-2026-en.html)
+- [OpenCode vs Claude Code vs Cursor vs Windsurf](https://www.shareuhack.com/en/posts/cursor-vs-claude-code-vs-windsurf-2026) - Comparison guide
 
 ## License
 
