@@ -2,8 +2,6 @@
 
 # OpenCode Setup GUide
 
-# OpenCode Setup Guide
-
 > ⚠️ This repository is for **learning purposes** and will be **updated continuously** as I explore more OpenCode features.
 
 **Last Updated**: April 2026
