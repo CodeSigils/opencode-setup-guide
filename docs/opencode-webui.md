@@ -61,7 +61,7 @@ export OPENCODE_SERVER_USERNAME=opencode
 
 ## 2. Desktop App
 
-OpenCode has an official desktop application built with SolidJS.
+OpenCode has an official desktop application built with **SolidJS**.
 
 ### Download
 
@@ -79,6 +79,30 @@ Get from: https://opencode.ai/download
 - Same core OpenCode capabilities
 - Multi-session support
 - Works offline (web UI embedded in binary)
+
+---
+
+## 2.1 Open WebUI (Provider)
+
+Open WebUI is a community project that integrates OpenCode as an LLM provider.
+
+### What It Does
+
+- Use OpenCode as a provider for other apps
+- Connect OpenCode to applications like Open WebUI
+- More flexible integration options
+
+### Setup
+
+See GitHub PR: https://github.com/anomalyco/opencode/pull/18306
+
+```bash
+# Install Open WebUI
+pip install open-webui
+
+# Configure OpenCode provider
+# In Open WebUI settings, add OpenCode as provider
+```
 
 ---
 
