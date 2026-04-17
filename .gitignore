@@ -1,0 +1,25 @@
+# OpenCode Setup - Git Ignore
+
+## Sensitive Files
+*.json.key
+*.pem
+*.key
+config-secrets.*
+secrets.*
+
+## Node Modules (if any)
+node_modules/
+
+## OS
+.DS_Store
+Thumbs.db
+
+## IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+## Personal (uncomment if needed)
+# ~/opencode-setup/
+# ~/.config/opencode/

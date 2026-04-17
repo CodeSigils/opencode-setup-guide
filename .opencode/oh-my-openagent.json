@@ -1,0 +1,26 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/master/assets/oh-my-openagent.schema.json",
+  "agents": {
+    "sisyphus": { "model": "opencode/big-pickle", "prompt_append": "file://~/.config/opencode/directives.md" },
+    "oracle": { "model": "opencode/big-pickle", "prompt_append": "file://~/.config/opencode/directives.md" },
+    "librarian": { "model": "opencode/big-pickle" },
+    "explore": { "model": "opencode/gpt-5-nano" },
+    "metis": { "model": "opencode/big-pickle" },
+    "momus": { "model": "opencode/big-pickle" },
+    "atlas": { "model": "opencode/big-pickle" },
+    "prometheus": { "model": "opencode/big-pickle" }
+  },
+  "sisyphus": {
+    "enabled": true,
+    "max_concurrent_tasks": 2,
+    "task_timeout": 300
+  },
+  "categories": {
+    "visual-engineering": { "model": "opencode/big-pickle" },
+    "ultrabrain": { "model": "opencode/big-pickle" },
+    "deep": { "model": "opencode/big-pickle" },
+    "artistry": { "model": "opencode/big-pickle" },
+    "unspecified-high": { "model": "opencode/big-pickle" },
+    "quick": { "model": "opencode/gpt-5-nano" }
+  }
+}
