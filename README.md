@@ -143,6 +143,22 @@ Plugins extend functionality. Just add to config - no `npm install` needed:
 - OpenCode installed
 - Node.js 18+
 - ripgrep (optional, better search)
+- markdownlint-cli (for linting)
+
+### Quality Assurance
+
+This repo includes two ways to lint markdown files:
+
+**1. On-demand with skill:**
+```bash
+npx markdownlint "**/*.md"
+```
+
+**2. Pre-commit hook:**
+The `.git/hooks/pre-commit` automatically lints markdown files on commit. Bypass with:
+```bash
+git commit --no-verify
+```
 
 ---
 
