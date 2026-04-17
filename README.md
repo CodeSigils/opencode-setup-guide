@@ -31,21 +31,37 @@ See [SETUP.md](SETUP.md) for detailed installation steps.
 
 ## What's Included
 
+This guide includes the **oh-my-openagent** plugin - a popular enhancement that adds powerful custom agents to OpenCode.
+
 | Component | Description |
 | :--- | :--- |
+| **oh-my-openagent** | Plugin with custom agents (Sisyphus, Oracle, Librarian, etc.) |
 | **17 Persistent Directives** | Rules that apply to every session |
 | **Custom Skills** | Reusable instruction bundles |
 | **Memory Plugin** | Semantic memory for AI context |
 | **Agent Configurations** | Optimized models for different tasks |
 | **Best Practices Guide** | Avoid common AI coding mistakes |
 
+### What is oh-my-openagent?
+
+[oh-my-openagent](https://github.com/code-yeongyu/oh-my-opencode) (25k+ GitHub stars) extends OpenCode with specialized agents:
+
+| Agent | Purpose |
+| :--- | :--- |
+| **Sisyphus** | Main orchestrator - breaks down tasks, delegates to subagents |
+| **Oracle** | Debugging, architecture consultation |
+| **Librarian** | Documentation lookup, research |
+| **Explore** | Codebase search, pattern finding |
+| **Metis** | Pre-planning analysis |
+| **Momus** | Plan review and critique |
+
 ---
 
 ## Key Concepts
 
-### Agents vs Categories
+### oh-my-openagent Agents vs Categories
 
-OpenCode uses two delegation systems:
+OpenCode uses two delegation systems. The agents below come from the **oh-my-openagent** plugin (included in this setup):
 
 **Agents** - Specialized AI personalities:
 - **Sisyphus** - Main orchestrator (most tasks)
