@@ -1,8 +1,6 @@
-# OpenCode
+![OpenCode](https://www.docker.com/app/uploads/2026/01/OpenCode-DMR-figure-1-1.png)
 
-![OpenCode Logo](https://raw.githubusercontent.com/anomalyco/opencode/dev/packages/console/app/src/asset/logo-ornate-light.svg)
-
-*The open source AI coding agent* (144K GitHub stars)
+# OpenCode Setup GUide
 
 # OpenCode Setup Guide
 
