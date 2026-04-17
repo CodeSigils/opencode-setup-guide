@@ -4,6 +4,8 @@
 
 This comprehensive guide covers the complete setup of OpenCode with plugins, custom models, persistent directives, skills, and anti-patterns system. It's designed to help you configure and use OpenCode effectively for production development.
 
+> **Learning Tip**: This guide assumes you understand basic CLI tools and have used an AI coding assistant before. If you're new to AI coding, start with the [Index](../index.md) to understand core concepts first.
+
 ---
 
 ## Table of Contents
@@ -29,17 +31,24 @@ This comprehensive guide covers the complete setup of OpenCode with plugins, cus
 
 OpenCode is an AI coding agent that helps you write, debug, and maintain code. Unlike traditional coding assistants, OpenCode is designed to be fully autonomous while following your team's conventions and best practices.
 
+**Key distinction from other AI tools**: OpenCode doesn't just generate code - it **reasons** about your codebase, searches for existing patterns before creating new code, and delivers production-ready solutions with minimal hand-holding.
+
 ### Why This Setup?
 
-This configuration provides:
+This configuration provides the foundation for effective AI-assisted development:
 
-| Feature | Purpose |
-| :--- | :--- |
-| Persistent Directives | Rules that apply to every session |
-| Custom Skills | Reusable instruction bundles |
-| Memory Plugin | Semantic search for context |
-| Anti-Patterns Guide | Avoid common AI mistakes |
-| Best Practices | Community-approved patterns |
+| Feature | Purpose | Why It Matters |
+| :--- | :--- | :--- |
+| **Persistent Directives** | Rules that apply to every session | Ensures consistent behavior across all tasks |
+| **Custom Skills** | Reusable instruction bundles | Encodes your team's conventions once |
+| **Memory Plugin** | Semantic search for context | Learns from your past decisions |
+| **Anti-Patterns Guide** | Avoid common AI mistakes | Prevents production bugs from AI code |
+| **Best Practices** | Community-approved patterns | Leverages collective experience |
+
+**Who is this for?**
+- Developers migrating from Cursor/Windsurf
+- Teams standardizing AI coding practices
+- Power users wanting full customization
 
 ---
 
@@ -49,18 +58,24 @@ This configuration provides:
 
 OpenCode uses a hierarchical configuration system. It looks for configuration files in multiple locations with the following priority order:
 
-| Level | Path | Description |
-| :--- | :--- | :--- |
-| Project | `.opencode/oh-my-openagent.json` | Project-specific settings |
-| User | `~/.config/opencode/oh-my-openagent.json` | User-wide settings |
+| Level | Path | Description | When to Use |
+| :--- | :--- | :--- | :--- |
+| **Project** | `.opencode/oh-my-openagent.json` | Project-specific settings | Team projects, shared configs |
+| **User** | `~/.config/opencode/oh-my-openagent.json` | User-wide settings | Personal preferences, defaults |
 
-Both JSON and JSONC (JSON with Comments) formats are supported. JSONC allows comments and trailing commas, making it easier to write and maintain.
+**How priority works**: Project settings override user settings. This means you can set sensible defaults globally, then override them per-project for specific team requirements.
+
+> **Important**: Both JSON and JSONC (JSON with Comments) formats are supported. JSONC allows comments and trailing commas, making it easier to write and maintain. Use `.jsonc` extension if you want comments.
 
 ### 2.2 Installing Plugins
 
-**Important**: Do NOT use `npm install` for OpenCode plugins. OpenCode auto-downloads plugins from npm when added to the configuration.
+**Crucial Concept - Don't Use npm install**: OpenCode plugins auto-download from npm when you add them to configuration. Running `npm install` is unnecessary and can cause version conflicts.
 
-Add plugins to `~/.config/opencode/opencode.json`:
+**Step-by-step**:
+
+1. Create or edit `~/.config/opencode/opencode.json`
+2. Add plugins to the `plugin` array
+3. Restart OpenCode - it downloads automatically
 
 ```json
 {
@@ -74,22 +89,40 @@ Add plugins to `~/.config/opencode/opencode.json`:
 
 ### Why This Works
 
-The OpenCode system monitors the `plugin` array in your configuration. On the next startup, it automatically downloads the specified plugins from npm. This eliminates the need for manual installation.
+The OpenCode system monitors the `plugin` array in your configuration. On the next startup, it automatically:
+1. Resolves the package name to the latest version
+2. Downloads from npm registry
+3. Loads the plugin into the runtime
+
+This is similar to how VS Code extensions work - you don't manually install them, you enable them in config.
 
 ### Available Plugins
 
-| Plugin | Purpose |
-| :--- | :--- |
-| `opencode-mem` | Semantic memory system |
-| `oh-my-openagent` | Core agent enhancements |
+| Plugin | npm Package | Purpose | When to Use |
+| :--- | :--- | :--- | :--- |
+| `opencode-mem` | `opencode-mem` | Semantic memory system | Always - provides context search |
+| `oh-my-openagent` | `oh-my-openagent` | Core agent enhancements | Recommended - adds powerful agents |
+
+**Note**: Version pinning is optional. Using `@latest` gets the newest stable version. Pin to specific version (e.g., `oh-my-openagent@2.1.0`) if you need stability.
 
 ---
 
 ## 3. Model Configuration
 
-### 3.1 Configuring Agents
+### 3.1 Understanding Agent vs Category Models
 
-Each agent can have its own model. Configure them in `~/.config/opencode/oh-my-openagent.json`:
+OpenCode uses two complementary systems for routing work to AI models:
+
+1. **Agents** - Specialized AI personalities for specific tasks (Sisyphus, Oracle, Librarian, etc.)
+2. **Categories** - Task-type classifiers that route work to appropriate models
+
+Think of it this way:
+- **Agents** are like specialists - you call them by name for specific expertise
+- **Categories** are like job postings - you describe the task type and OpenCode matches it to a model
+
+### 3.2 Configuring Agents
+
+Each agent can have its own model. This lets you assign powerful models to complex tasks and lighter models for simple ones. Configure in `~/.config/opencode/oh-my-openagent.json`:
 
 ```json
 {
@@ -122,31 +155,47 @@ Each agent can have its own model. Configure them in `~/.config/opencode/oh-my-o
 
 ### 3.2 Agent Descriptions
 
-| Agent | Purpose |
-| :--- | :--- |
-| `sisyphus` | Main orchestrator for task execution |
-| `oracle` | Debugging and reasoning specialist |
-| `librarian` | Research and documentation lookup |
-| `explore` | Codebase search and pattern finding |
-| `metis` | Pre-planning consultant |
-| `momus` | Review and critique specialist |
-| `atlas` | Master orchestrator |
-| `prometheus` | Planning and task management |
+| Agent | Purpose | When to Invoke |
+| :--- | :--- | :--- |
+| `sisyphus` | Main orchestrator for task execution | Most tasks - default choice |
+| `oracle` | Debugging and reasoning specialist | Complex bugs, architecture questions |
+| `librarian` | Research and documentation lookup | Need to find docs or external info |
+| `explore` | Codebase search and pattern finding | Need to understand existing code |
+| `metis` | Pre-planning consultant | Before starting complex implementation |
+| `momus` | Review and critique specialist | After completing significant work |
+| `atlas` | Master orchestrator | Multi-system coordination |
+| `prometheus` | Planning and task management | Breaking down large tasks |
 
 ### 3.3 Category Descriptions
 
-| Category | Best For |
-| :--- | :--- |
-| `visual-engineering` | Frontend, UI/UX, design |
-| `ultrabrain` | Hard logic, algorithms |
-| `deep` | Research-heavy tasks |
-| `artistry` | Creative problem-solving |
-| `quick` | Simple, trivial tasks |
-| `unspecified-high` | Complex unspecified tasks |
+Categories are invoked via `task(category="...")` and OpenCode automatically selects appropriate model:
+
+| Category | Best For | Example Tasks |
+| :--- | :--- | :--- |
+| `visual-engineering` | Frontend, UI/UX, design | CSS, React components, layouts |
+| `ultrabrain` | Hard logic, algorithms | Complex algorithms, optimizations |
+| `deep` | Research-heavy tasks | Investigating new libraries, patterns |
+| `artistry` | Creative problem-solving | Unconventional solutions |
+| `quick` | Simple, trivial tasks | Typos, small fixes |
+| `unspecified-high` | Complex unspecified tasks | Ambiguous requirements |
 
 ### 3.4 Recommended Models
 
 Choose models based on task complexity:
+
+| Complexity | Recommended Models | Cost | Speed |
+| :--- | :--- | :--- | :--- |
+| **Simple** | `opencode/gpt-5-nano` | Low | Fast |
+| **Medium** | `opencode/big-pickle` | Medium | Medium |
+| **Complex** | `ollama-cloud/qwen3-next:80b` | Higher | Slower |
+| **Research** | `ollama-cloud/deepseek-v3.2` | Medium | Medium |
+
+**Model sources**:
+- **OpenCode models** (`opencode/*`) - Built-in models
+- **Ollama Cloud** (`ollama-cloud/*`) - Remote Ollama instances
+- **OpenAI/Anthropic** - Via OpenCode's API configuration
+
+> **Cost Tip**: Use `gpt-5-nano` for trivial tasks to save resources. Reserve larger models for complex reasoning tasks.
 
 | Model | Best For | Cost |
 | :--- | :--- | :--- |
@@ -195,9 +244,20 @@ Think of Sisyphus as your project manager - it plans, delegates, and supervises 
 
 ## 4. Persistent Directives
 
-### 4.1 How Directives Work
+### 4.1 What Are Directives?
 
-Custom directives persist across sessions using `prompt_append` with a file URI. This loads instructions from an external file and appends them to agent system prompts.
+**Directives** are rules that persist in every session. Unlike skills (loaded on-demand), directives apply to all tasks automatically. They're the "always-on" instructions that shape how OpenCode behaves.
+
+**Why use directives?**
+- Enforce consistent behavior across all tasks
+- Capture team conventions once
+- Prevent common mistakes automatically
+
+### 4.2 How Directives Work
+
+Custom directives persist across sessions using `prompt_append` with a file URI. This loads instructions from an external file and appends them to agent system prompts, so they're always present in every conversation.
+
+**Key concept**: Directives are loaded via the `prompt_append` config option, which appends file contents to the agent's system prompt. This means every message includes your rules.
 
 Add the `prompt_append` option to any agent:
 
@@ -253,8 +313,8 @@ Before implementing ANY feature, library integration, or solving NON-TRIVIAL pro
 
 | What to Persist | What is Reference |
 | :--- | :--- |
-| directives.md | opencode-plugins-setup.md |
-| (rules) | opencode-skills.md |
+| directives.md | setup.md |
+| (rules) | skills.md |
 
 **Do NOT load**: Full guides (~500+ lines) in prompt_append.
 
@@ -694,7 +754,7 @@ websearch "best practices React authentication"
 | `oh-my-openagent.json` | `~/.config/opencode/` | Agents and models |
 | `directives.md` | `~/.config/opencode/` | Persistent rules |
 | `opencode-mem.jsonc` | `~/.config/opencode/` | Memory config |
-| `opencode-footguns.md` | `~/.config/opencode/` | Anti-patterns ref |
+| `best-practices.md` | `~/Notes/opencode/` | Anti-patterns ref |
 
 ### 8.2 Configuration Hierarchy
 
@@ -704,8 +764,8 @@ websearch "best practices React authentication"
 ├── oh-my-openagent.json # Agent configs
 ├── directives.md        # Persistent rules
 ├── opencode-mem.jsonc   # Memory settings
-├── opencode-footguns.md # Anti-patterns
-└── skills/             # Custom skills
+├── best-practices.md    # Anti-patterns
+└── skills/              # Custom skills
 ```
 
 Project-level settings override user-level settings when in a project directory.
@@ -862,13 +922,15 @@ Some models may not be available in your region. Check the official model list o
 
 This guide is part of a larger documentation set:
 
-- `SETUP.md` - Quick installation guide
-- `docs/opencode-skills.md` - Skills reference guide
-- `docs/opencode-plugins-setup.md` - This comprehensive guide
+- `index.md` - Documentation hub (this file)
+- `skills.md` - Skills reference guide
+- `setup.md` - This comprehensive guide
 
 ### Additional Reading
 
 For deeper understanding of AI coding tools and patterns, read the comprehensive analysis at: https://www.glukhov.org/ai-devtools/opencode/oh-my-opencode/
+
+For a curated list of OpenCode resources, configurations, and community tools, see: https://github.com/awesome-opencode/awesome-opencode
 
 ---
 
@@ -881,7 +943,7 @@ For deeper understanding of AI coding tools and patterns, read the comprehensive
 | Add directive | Use `prompt_append` with file:// URI |
 | Search memory | Use `memory({ mode: "search" })` |
 | Check footguns | Use grep or memory search |
-| Update docs | Edit ~/Notes/opencode-plugins-setup.md |
+| Update docs | Edit ~/Notes/opencode/setup.md |
 
 ---
 

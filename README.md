@@ -40,6 +40,7 @@ ln -s ~/opencode-setup/skills/* ~/.config/opencode/skills/
 - Model configurations (big-pickle, gpt-5-nano)
 - 17 persistent directives
 - Sisyphus settings
+- Permission configuration
 
 ### Skills
 - code-checklist - Your personal rules
@@ -48,10 +49,13 @@ ln -s ~/opencode-setup/skills/* ~/.config/opencode/skills/
 - security-auditor - Security scanning
 - And more from chandima/config
 
-### Documentation
-- `docs/opencode-plugins-setup.md` - Complete setup guide
-- `docs/opencode-skills.md` - Skills guide
-- `SETUP.md` - Step-by-step installation
+### Documentation (Enhanced)
+- `index.md` - Documentation hub with learning path
+- `docs/setup.md` - Comprehensive setup guide (~950 lines)
+- `docs/agents.md` - Agent configuration & permissions
+- `docs/skills.md` - Skills system guide
+- `docs/best-practices.md` - AI anti-patterns & patterns
+- `docs/webui.md` - Web UI access guide
 
 ## Requirements
 
@@ -61,14 +65,16 @@ ln -s ~/opencode-setup/skills/* ~/.config/opencode/skills/
 
 ## Documentation
 
-See the `docs/` directory for:
+See the `docs/` directory and `index.md` for:
 
 | Guide | Description |
 | :--- | :--- |
-| [docs/opencode-plugins-setup.md](docs/opencode-plugins-setup.md) | Comprehensive setup guide (870 lines) |
-| [docs/opencode-skills.md](docs/opencode-skills.md) | Skills reference guide |
-| [docs/opencode-footguns.md](docs/opencode-footguns.md) | AI anti-patterns guide |
-| [docs/opencode-webui.md](docs/opencode-webui.md) | Web UI access guide |
+| [index.md](index.md) | Documentation hub - start here |
+| [docs/setup.md](docs/setup.md) | Comprehensive setup guide (~950 lines) |
+| [docs/agents.md](docs/agents.md) | Agent configuration & permissions |
+| [docs/skills.md](docs/skills.md) | Skills system guide |
+| [docs/best-practices.md](docs/best-practices.md) | AI anti-patterns & patterns |
+| [docs/webui.md](docs/webui.md) | Web UI access guide |
 | [SETUP.md](SETUP.md) | Step-by-step installation |
 
 ## Important Disclaimers
