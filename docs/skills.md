@@ -327,7 +327,7 @@ Control skill access in opencode.json - useful for teams who want to restrict ce
 
 ## Related
 
-- [Index](../index.md) - Documentation hub
+- [README](../README.md) - Setup guide
 - [Setup Guide](../setup.md) - Comprehensive setup
 - [Agents](../agents.md) - Agent configuration
 - [Best Practices](../best-practices.md) - AI anti-patterns

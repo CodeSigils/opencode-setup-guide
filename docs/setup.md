@@ -4,7 +4,7 @@
 
 This comprehensive guide covers the complete setup of OpenCode with plugins, custom models, persistent directives, skills, and anti-patterns system. It's designed to help you configure and use OpenCode effectively for production development.
 
-> **Learning Tip**: This guide assumes you understand basic CLI tools and have used an AI coding assistant before. If you're new to AI coding, start with the [Index](../index.md) to understand core concepts first.
+> **Learning Tip**: This guide assumes you understand basic CLI tools and have used an AI coding assistant before. If you're new to AI coding, start with the [README](../README.md) to understand core concepts first.
 
 ---
 
@@ -918,15 +918,9 @@ Some models may not be available in your region. Check the official model list o
 - Skills: https://github.com/chandima/opencode-config
 - Superpowers: https://github.com/obra/superpowers
 
-### Detailed Guides
-
-This guide is part of a larger documentation set:
-
-- `index.md` - Documentation hub (this file)
-- `skills.md` - Skills reference guide
-- `setup.md` - This comprehensive guide
-
 ### Additional Reading
+
+For deeper understanding of AI coding tools and patterns, read the comprehensive analysis at: https://www.glukhov.org/ai-devtools/opencode/oh-my-opencode/
 
 For deeper understanding of AI coding tools and patterns, read the comprehensive analysis at: https://www.glukhov.org/ai-devtools/opencode/oh-my-opencode/
 

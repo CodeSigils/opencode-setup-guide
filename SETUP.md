@@ -125,9 +125,10 @@ grep opencode-mem ~/.config/opencode/opencode.json
 
 ## Next Steps
 
-1. Read `docs/opencode-plugins-setup.md` for complete guide
-2. Read `docs/opencode-skills.md` for skills reference
-3. Customize the directives for your needs
+1. Read `docs/setup.md` for complete setup guide
+2. Read `docs/skills.md` for skills reference
+3. Read `docs/best-practices.md` to avoid AI coding mistakes
+4. Customize the directives for your needs
 
 ---
 

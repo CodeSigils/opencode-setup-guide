@@ -523,7 +523,7 @@ sudo usermod -aG docker $USER
 
 ## Related
 
-- [Index](../index.md) - Documentation hub
+- [README](../README.md) - Setup guide
 - [Setup Guide](../setup.md) - Comprehensive setup
 - [Agents](../agents.md) - Agent configuration
 

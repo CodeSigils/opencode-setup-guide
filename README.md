@@ -1,6 +1,8 @@
 ![OpenCode](https://www.docker.com/app/uploads/2026/01/OpenCode-DMR-figure-1-1.png)
 
-# OpenCode Setup GUide
+# OpenCode Practical Setup Guide
+
+A hands-on guide for configuring OpenCode as your AI coding assistant. This repo provides a production-ready configuration with persistent directives, custom skills, and best practices.
 
 > ⚠️ This repository is for **learning purposes** and will be **updated continuously** as I explore more OpenCode features.
 
@@ -8,106 +10,119 @@
 
 ---
 
-A comprehensive, production-ready OpenCode configuration that demonstrates 
-some of the amazing OpenCode's capabilities.
-
-## Features
-
-This setup includes:
-
-- **17 Persistent Directives** - Rules that persist across sessions
-- **Custom Skills** - Reusable instruction bundles
-- **Memory Plugin** - Semantic memory for AI context
-- **Anti-Patterns Guide** - 10 AI patterns to avoid
-- **Best Practices** - Community-approved patterns
-- **Comprehensive Guides** - Full documentation
-
 ## Quick Start
 
 ```bash
 # Clone this repo
 git clone https://github.com/YOUR_USERNAME/opencode-setup-guide.git ~/opencode-setup
 
-# Link to your config
-ln -s ~/opencode-setup/.opencode ~/.config/opencode/my-setup
+# Link configuration
+ln -sf ~/opencode-setup/.opencode/opencode.json ~/.config/opencode/opencode.json
+ln -sf ~/opencode-setup/.opencode/oh-my-openagent.json ~/.config/opencode/oh-my-openagent.json
+ln -sf ~/opencode-setup/.opencode/directives.md ~/.config/opencode/directives.md
+
+# Link skills
 ln -s ~/opencode-setup/skills/* ~/.config/opencode/skills/
 ```
 
+See [SETUP.md](SETUP.md) for detailed installation steps.
+
+---
+
 ## What's Included
 
-### Configuration
-- Plugin list (opencode-mem, oh-my-openagent)
-- Model configurations (big-pickle, gpt-5-nano)
-- 17 persistent directives
-- Sisyphus settings
-- Permission configuration
+| Component | Description |
+| :--- | :--- |
+| **17 Persistent Directives** | Rules that apply to every session |
+| **Custom Skills** | Reusable instruction bundles |
+| **Memory Plugin** | Semantic memory for AI context |
+| **Agent Configurations** | Optimized models for different tasks |
+| **Best Practices Guide** | Avoid common AI coding mistakes |
 
-### Skills
-- code-checklist - Your personal rules
-- context7-docs - Official docs lookup
-- github-ops - GitHub operations
-- security-auditor - Security scanning
-- And more from chandima/config
+---
 
-### Documentation (Enhanced)
-- `index.md` - Documentation hub with learning path
-- `docs/setup.md` - Comprehensive setup guide (~950 lines)
-- `docs/agents.md` - Agent configuration & permissions
-- `docs/skills.md` - Skills system guide
-- `docs/best-practices.md` - AI anti-patterns & patterns
-- `docs/webui.md` - Web UI access guide
+## Key Concepts
+
+### Agents vs Categories
+
+OpenCode uses two delegation systems:
+
+**Agents** - Specialized AI personalities:
+- **Sisyphus** - Main orchestrator (most tasks)
+- **Oracle** - Debugging, architecture
+- **Librarian** - Documentation lookup
+- **Explore** - Codebase search
+
+**Categories** - Task-type classifiers:
+- `visual-engineering` - UI/UX, frontend
+- `ultrabrain` - Hard logic, algorithms
+- `deep` - Research-heavy tasks
+- `quick` - Simple edits
+
+### Plugins
+
+Plugins extend functionality. Just add to config - no `npm install` needed:
+
+| Plugin | Purpose |
+| :--- | :--- |
+| `oh-my-openagent` | Core enhancements, custom agents |
+| `opencode-mem` | Semantic memory, search past sessions |
+
+### Directives vs Skills
+
+| | Directives | Skills |
+| :--- | :--- | :--- |
+| **Load timing** | Every session (via prompt_append) | On-demand |
+| **Scope** | General rules | Specific workflows |
+| **Purpose** | Universal rules (~300 lines max) | Team conventions |
+
+---
+
+## Documentation Guide
+
+| Guide | Description | When to Read |
+| :--- | :--- | :--- |
+| [docs/setup.md](docs/setup.md) | Complete setup (plugins, models, directives) | Start here |
+| [docs/agents.md](docs/agents.md) | Agent configuration & permissions | After setup |
+| [docs/skills.md](docs/skills.md) | Skills system guide | Want to customize |
+| [docs/best-practices.md](docs/best-practices.md) | 10 AI anti-patterns to avoid | Before starting work |
+| [docs/webui.md](docs/webui.md) | Web UI, desktop app, Docker | Prefer browser |
+
+### Learning Path (Recommended Order)
+
+1. **docs/setup.md** → Set up your environment
+2. **docs/agents.md** → Customize agent behavior
+3. **docs/skills.md** → Add team conventions
+4. **docs/best-practices.md** → Learn from AI mistakes
+5. **docs/webui.md** → Optional, for browser access
+
+---
 
 ## Requirements
 
 - OpenCode installed
 - Node.js 18+
-- ripgrep (optional, for better search)
+- ripgrep (optional, better search)
 
-## Documentation
-
-See the `docs/` directory and `index.md` for:
-
-| Guide | Description |
-| :--- | :--- |
-| [index.md](index.md) | Documentation hub - start here |
-| [docs/setup.md](docs/setup.md) | Comprehensive setup guide (~950 lines) |
-| [docs/agents.md](docs/agents.md) | Agent configuration & permissions |
-| [docs/skills.md](docs/skills.md) | Skills system guide |
-| [docs/best-practices.md](docs/best-practices.md) | AI anti-patterns & patterns |
-| [docs/webui.md](docs/webui.md) | Web UI access guide |
-| [SETUP.md](SETUP.md) | Step-by-step installation |
+---
 
 ## Important Disclaimers
 
 ### No Warranty
 
-All content is provided **as-is** without any warranty. Specifically:
+All content is provided **as-is** without any warranty:
 
 - **Data Loss**: Verify backups before running commands
-- **System Damage**: Test in development environments first
-- **Security Issues**: Review all code before execution
-- **Financial Costs**: Check API pricing before use
+- **System Damage**: Test in development first
+- **Security Issues**: Review code before execution
+- **Financial Costs**: Check API pricing
 
 ### Your Responsibility
 
-**Reader Beware**: As a reader, you must:
-
-- **Verify Commands**: Double-check all commands against official documentation
-- **Understand Before Running**: Don't run code you don't understand
-- **Back Up Data**: Always have backups before system changes
-- **Check Sources**: Cross-reference with official docs
-- **Use Your Judgment**: What works for me might not work for you
-
-### Personal Opinions
-
-All views expressed here are personal opinions based on:
-
-- Individual experimentation
-- Specific use cases
-- Limited testing
-- My own environment
-
-Your experience may differ. Always verify against your own research.
+- Verify commands against official documentation
+- Understand before running code
+- Back up data before system changes
+- Use your judgment - what works for me may not work for you
 
 ---
 

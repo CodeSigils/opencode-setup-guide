@@ -250,7 +250,7 @@ opencode --reload
 
 ## Related
 
-- [Index](../index.md) - Documentation hub
+- [README](../README.md) - Setup guide
 - [Setup Guide](../setup.md) - Comprehensive setup
 - [Skills](../skills.md) - Skills system
 - [Web UI](../webui.md) - Web access options

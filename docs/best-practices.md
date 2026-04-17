@@ -399,7 +399,7 @@ Use this to quickly check AI-generated code:
 - [Medium: Lint Against the Machine](https://medium.com/@montes.makes/lint-against-the-machine-a-field-guide-to-catching-ai-coding-agent-anti-patterns-3c4ef7baeb9e)
 
 ### Related Documentation
-- [Index](../index.md) - Documentation hub
+- [README](../README.md) - Setup guide
 - [Setup Guide](../setup.md) - Comprehensive setup
 - [Agents](../agents.md) - Agent configuration
 
