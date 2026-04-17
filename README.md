@@ -66,6 +66,7 @@ See the `docs/` directory for:
 | :--- | :--- |
 | [docs/opencode-plugins-setup.md](docs/opencode-plugins-setup.md) | Comprehensive setup guide (870 lines) |
 | [docs/opencode-skills.md](docs/opencode-skills.md) | Skills reference guide |
+| [docs/opencode-footguns.md](docs/opencode-footguns.md) | AI anti-patterns guide |
 | [SETUP.md](SETUP.md) | Step-by-step installation |
 
 ## Important Disclaimers
