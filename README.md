@@ -132,6 +132,10 @@ All content is provided **as-is** without any warranty:
 - Skills from [chandima/opencode-config](https://github.com/chandima/opencode-config)
 - Methodology from [obra/superpowers](https://github.com/obra/superpowers)
 
+## Sources
+
+- [OpenCode + Docker Model Runner: Private AI Coding](https://www.docker.com/blog/opencode-docker-model-runner-private-ai-coding/)
+
 ## License
 
 MIT
