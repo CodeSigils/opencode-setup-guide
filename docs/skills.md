@@ -77,6 +77,62 @@ Use this skill whenever:
 5. **Coverage**: Aim for 80%+ coverage on new code
 ```
 
+### Example: markdown-lint Skill (Practical)
+
+Here's a real skill we use in this repo for linting markdown files:
+
+**File:** `~/.config/opencode/skills/markdown-lint/SKILL.md`
+
+```markdown
+---
+name: markdown-lint
+description: Lint markdown files for style issues using markdownlint
+license: MIT
+compatibility: opencode
+---
+
+# Markdown Lint
+
+This skill lints markdown files for style and syntax issues using markdownlint.
+
+## What I Do
+
+I run markdownlint on the specified file to check for:
+- Code block syntax errors
+- Heading hierarchy issues
+- Link issues (broken, empty)
+- Table formatting issues
+
+## Usage
+
+Run on a specific file:
+```bash
+npx markdownlint README.md
+```
+
+Run on all markdown files:
+```bash
+npx markdownlint "**/*.md"
+```
+
+## Configuration
+
+Create `.markdownlint.json` in project root:
+```json
+{
+  "MD013": false,
+  "MD033": false,
+  "MD041": false
+}
+```
+```
+
+This skill is practical because it:
+1. Uses an existing npm tool (markdownlint-cli)
+2. Enforces consistent markdown style
+3. Can run on-demand when editing `.md` files
+4. Works with pre-commit hooks for automation
+
 ---
 
 ## Where Skills Live
