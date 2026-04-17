@@ -60,10 +60,46 @@ ln -s ~/opencode-setup/skills/* ~/.config/opencode/skills/
 ## Documentation
 
 See the `docs/` directory for:
-- Complete setup instructions
-- Skills usage guide
-- Directives reference
-- Best practices guide
+
+| Guide | Description |
+| :--- | :--- |
+| [docs/opencode-plugins-setup.md](docs/opencode-plugins-setup.md) | Comprehensive setup guide (870 lines) |
+| [docs/opencode-skills.md](docs/opencode-skills.md) | Skills reference guide |
+| [SETUP.md](SETUP.md) | Step-by-step installation |
+
+## Important Disclaimers
+
+### No Warranty
+
+All content is provided **as-is** without any warranty. Specifically:
+
+- **Data Loss**: Verify backups before running commands
+- **System Damage**: Test in development environments first
+- **Security Issues**: Review all code before execution
+- **Financial Costs**: Check API pricing before use
+
+### Your Responsibility
+
+**Reader Beware**: As a reader, you must:
+
+- **Verify Commands**: Double-check all commands against official documentation
+- **Understand Before Running**: Don't run code you don't understand
+- **Back Up Data**: Always have backups before system changes
+- **Check Sources**: Cross-reference with official docs
+- **Use Your Judgment**: What works for me might not work for you
+
+### Personal Opinions
+
+All views expressed here are personal opinions based on:
+
+- Individual experimentation
+- Specific use cases
+- Limited testing
+- My own environment
+
+Your experience may differ. Always verify against your own research.
+
+---
 
 ## Credits
 
