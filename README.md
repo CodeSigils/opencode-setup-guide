@@ -18,6 +18,7 @@ This setup includes:
 - **17 Persistent Directives** - Rules that persist across sessions
 - **Custom Skills** - Reusable instruction bundles
 - **Memory Plugin** - Semantic memory for AI context
+- **Anti-Patterns Guide** - 10 AI patterns to avoid
 - **Best Practices** - Community-approved patterns
 - **Comprehensive Guides** - Full documentation
 
