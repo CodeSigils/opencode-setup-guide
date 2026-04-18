@@ -326,7 +326,7 @@ Before implementing ANY feature, library integration, or solving NON-TRIVIAL pro
 
 | What to Persist | What is Reference |
 | :--- | :--- |
-| directives.md | setup.md |
+| ``directives.md`` | setup.md |
 | (rules) | skills.md |
 
 **Do NOT load**: Full guides (~500+ lines) in prompt_append.
@@ -766,7 +766,7 @@ websearch "best practices React authentication"
 | :--- | :--- | :--- |
 | `opencode.json` | `~/.config/opencode/` | Plugin list |
 | `oh-my-openagent.json` | `~/.config/opencode/` | Agents and models |
-| `directives.md` | `~/.config/opencode/` | Persistent rules |
+| ``directives.md`` | `~/.config/opencode/` | Persistent rules |
 | `opencode-mem.jsonc` | `~/.config/opencode/` | Memory config |
 | `best-practices.md` | `~/Notes/opencode/` | Anti-patterns ref |
 
@@ -845,7 +845,7 @@ mkdir -p ~/.config/opencode
 # 2. Copy configuration files
 cp opencode.json ~/.config/opencode/
 cp oh-my-openagent.json ~/.config/opencode/
-cp directives.md ~/.config/opencode/
+cp ``directives.md`` ~/.config/opencode/
 
 # 3. Clone community skills
 git clone https://github.com/chandima/opencode-config.git ~/projects/opencode-config
