@@ -67,6 +67,8 @@ OpenCode uses a hierarchical configuration system. It looks for configuration fi
 
 > **Important**: Both JSON and JSONC (JSON with Comments) formats are supported. JSONC allows comments and trailing commas, making it easier to write and maintain. Use `.jsonc` extension if you want comments.
 
+> **Package Manager**: Use **bun** for local dependency management (faster, no version conflicts). If using npm/pnpm, remove `package-lock.json` to avoid conflicts with bun.lock.
+
 ### 2.2 Installing Plugins
 
 **Crucial Concept - Don't Use npm install**: OpenCode plugins auto-download from npm when you add them to configuration. Running `npm install` is unnecessary and can cause version conflicts.
@@ -375,7 +377,7 @@ Use GFM schema with colons for column alignment:
 
 **Wrong**: Manual npm install for OpenCode plugins
 
-OpenCode plugins auto-download from npm when added to config:
+OpenCode plugins auto-download from npm when you add them to config:
 
 ```json
 { "plugin": ["plugin-name"] }
@@ -384,6 +386,9 @@ OpenCode plugins auto-download from npm when added to config:
 **DO NOT run** `npm install plugin-name` - it's redundant and wasteful.
 
 **CORRECT**: Just add to config → auto-downloads on next startup.
+
+**Recommended**: Use bun for local management. If you must use npm:
+- Delete `package-lock.json` to avoid conflicts with bun.lock
 
 #### Directive 6: Anti-Duplication
 

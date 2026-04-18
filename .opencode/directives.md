@@ -83,6 +83,8 @@ OpenCode plugins auto-download from npm when added to config:
 
 **CORRECT**: Just add to config → auto-downloads on next startup.
 
+**RECOMMENDED**: Use bun for local dependency management. If using npm/pnpm, remove package-lock.json to avoid conflicts with bun.lock.
+
 ---
 
 ### 6. Anti-Duplication
