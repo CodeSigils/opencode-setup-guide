@@ -299,6 +299,8 @@ Add the `prompt_append` option to any agent:
 
 ### 4.3 The 17 Directives
 
+> **Source**: These directives are extracted from [`directives.md`](.opencode/directives.md) - a persistent rules file loaded via `prompt_append` in every OpenCode session. Follow these rules in all your work.
+
 #### Directive 1: Check Official Documentation First
 
 Before implementing ANY feature, library integration, or solving NON-TRIVIAL problems:
