@@ -120,35 +120,41 @@ Think of it this way:
 - **Agents** are like specialists - you call them by name for specific expertise
 - **Categories** are like job postings - you describe the task type and OpenCode matches it to a model
 
-### 3.2 Configuring Agents
+### 3.2 Configuring Agents (Free Tier Optimized)
 
-Each agent can have its own model. This lets you assign powerful models to complex tasks and lighter models for simple ones. Configure in `~/.config/opencode/oh-my-openagent.json`:
+Each agent can have its own model with fallback chains. This provides FREE reliability:
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/master/assets/oh-my-openagent.schema.json",
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-openagent.schema.json",
   "agents": {
-    "sisyphus": { "model": "minimax-m2.5-free" },
-    "oracle": { "model": "minimax-m2.5-free" },
-    "librarian": { "model": "minimax-m2.5-free" },
-    "explore": { "model": "opencode/gpt-5-nano" },
-    "metis": { "model": "minimax-m2.5-free" },
-    "momus": { "model": "minimax-m2.5-free" },
-    "atlas": { "model": "minimax-m2.5-free" },
-    "prometheus": { "model": "minimax-m2.5-free" }
+    // Main orchestrator: minimax-free (best) → big-pickle (fast) → nano (fallback)
+    "sisyphus": {
+      "model": "opencode/minimax-m2.5-free",
+      "fallback_models": ["opencode/big-pickle", "opencode/gpt-5-nano"],
+      "prompt_append": "file://~/.config/opencode/directives.md"
+    },
+    // Oracle: Big Pickle for speed-critical debugging
+    "oracle": {
+      "model": "opencode/big-pickle",
+      "fallback_models": ["opencode/minimax-m2.5-free"]
+    },
+    // Librarian: Big Pickle for docs
+    "librarian": {
+      "model": "opencode/big-pickle",
+      "fallback_models": ["opencode/gpt-5-nano"]
+    },
+    // Explore: GPT-Nano for fast search
+    "explore": {
+      "model": "opencode/gpt-5-nano",
+      "fallback_models": ["opencode/big-pickle"]
+    }
   },
   "categories": {
-    "visual-engineering": { "model": "minimax-m2.5-free" },
-    "ultrabrain": { "model": "minimax-m2.5-free" },
-    "deep": { "model": "minimax-m2.5-free" },
-    "artistry": { "model": "minimax-m2.5-free" },
-    "unspecified-high": { "model": "minimax-m2.5-free" },
+    "visual-engineering": { "model": "opencode/big-pickle" },
+    "ultrabrain": { "model": "opencode/big-pickle" },
+    "deep": { "model": "opencode/minimax-m2.5-free", "fallback_models": ["opencode/big-pickle"] },
     "quick": { "model": "opencode/gpt-5-nano" }
-  },
-  "sisyphus": {
-    "enabled": true,
-    "max_concurrent_tasks": 2,
-    "task_timeout": 300
   }
 }
 ```
@@ -179,41 +185,37 @@ Categories are invoked via `task(category="...")` and OpenCode automatically sel
 | `quick` | Simple, trivial tasks | Typos, small fixes |
 | `unspecified-high` | Complex unspecified tasks | Ambiguous requirements |
 
-### 3.4 Recommended Models
+### 3.4 Recommended Models (Free Tier)
 
-Choose models based on task complexity:
+This configuration uses **3 FREE models** with fallback chains for reliability:
 
-| Complexity | Recommended Models | Cost | Speed |
+| Model | Tier | Best For | Error Rate |
 | :--- | :--- | :--- | :--- |
-| **Simple** | `opencode/gpt-5-nano` | Free | Fast |
-| **Medium** | `minimax-m2.5-free` | Free | Medium |
-| **Complex** | `minimax-m2.5-free` | Free | Medium |
+| `minimax-m2.5-free` | **Best** | Main reasoning, orchestration | 6.3% |
+| `big-pickle` | **Fast** | Oracle, Atlas, Writing | 12.3% |
+| `gpt-5-nano` | **Quick** | Explore, Quick tasks | N/A |
 
-> **Note**: This setup uses free models from OpenCode Zen. No API keys required.
+**Recommended Fallback Chains**:
+
+```json
+// For complex tasks (Sisyphus default)
+"model": "minimax-m2.5-free",
+"fallback_models": ["big-pickle", "gpt-5-nano"]
+
+// For fast tasks (Explore, Quick)
+"model": "gpt-5-nano",
+"fallback_models": ["big-pickle"]
+```
+
+**Why this strategy?**
+- **minimax-m2.5-free**: Best quality, lowest error rate
+- **big-pickle**: Fast execution as fallback
+- **gpt-5-nano**: Ultimate fallback, always available
+- **All FREE**: No API keys required
 
 **Model sources**:
 - **OpenCode Zen** (`minimax-m2.5-free`) - Free curated models
-- **OpenCode built-in** (`opencode/*`) - Free built-in models
-
-> **Cost Tip**: Use `gpt-5-nano` for trivial tasks to save resources. Reserve larger models for complex reasoning tasks.
-
-| Model | Best For | Error Rate |
-| :--- | :--- | :--- |
-| `opencode/big-pickle` | Main reasoning, orchestration | 12.3% (fast, researches first) |
-| `minimax-m2.5-free` | Higher accuracy needs | 6.3% (more accurate) |
-| `opencode/gpt-5-nano` | Quick tasks, exploration | N/A |
-
-**Strategy**: Use big-pickle for daily use, gpt-5-nano for quick lookups.
-
-**Why big-pickle over minimax?**
-- **Faster** - Completed tasks in 1m 17s vs 1m 35s
-- **Research-first approach** - Used Exa Code Search before coding
-- **12.3% error rate** - Still very usable for most tasks
-
-**When to use minimax-m2.5-free instead:**
-- When higher accuracy is critical (6.3% vs 12.3%)
-- Strict tasks like migration maps or schema generation
-- The benchmark showed half the error rate on structured outputs
+- **OpenCode built-in** (`big-pickle`, `gpt-5-nano`) - Free built-in models
 
 ### 3.5 What is Sisyphus?
 

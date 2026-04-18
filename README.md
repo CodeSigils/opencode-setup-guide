@@ -61,17 +61,17 @@ This configuration uses **free open-weight models** from OpenCode Zen - no paid 
 
 | Model | Purpose | Benchmark |
 | :--- | :--- | :--- |
-| **big-pickle** | Main reasoning (default) | 12.3% error rate, fastest |
+| **minimax-m2.5-free** | Main reasoning (default) | 6.3% error rate, most accurate |
 | **gpt-5-nano** | Quick tasks (free, built-in) | N/A |
 
-Based on [LLM benchmarks](https://www.glukhov.org/ai-devtools/opencode/llms-comparison/), big-pickle is the fastest free model (1m 17s) and uses a research-first approach.
+Based on [LLM benchmarks](https://www.glukhov.org/ai-devtools/opencode/llms-comparison/), minimax-m2.5-free is the most accurate free model (6.3% error rate).
 
-**Why big-pickle?** (vs minimax-m2.5-free at 6.3%):
-- **Fastest** - Completed tasks in 1m 17s vs 1m 35s
-- **Researches first** - Uses Exa Code Search before coding
-- **12.3% error rate** - Still very usable for daily tasks
+**Why minimax-m2.5-free?** (vs big-pickle at 12.3%):
+- **Most accurate** - 6.3% error rate (2x better than big-pickle)
+- **Better reasoning** - For complex tasks
+- **Trade-off** - Slower (1m 35s vs 1m 17s)
 
-**When to use minimax-m2.5-free instead:** Higher accuracy needed (6.3% vs 12.3%) for strict tasks like migration maps.
+**When to use gpt-5-nano instead:** Quick lookups, fast exploration.
 
 **Why free models?**
 - Free to use - no API costs

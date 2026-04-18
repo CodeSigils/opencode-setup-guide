@@ -61,7 +61,7 @@ OpenCode supports multiple model sources. Each agent can use a different model b
 | Source | Prefix | Description |
 | :--- | :--- | :--- |
 | **OpenCode built-in** | `opencode/*` | Optimized models (gpt-5-nano) |
-| **OpenCode Zen** | `opencode/big-pickle` | Free curated models |
+| **OpenCode Zen** | `minimax-m2.5-free` | Free open-weight models |
 | **OpenAI** | `openai/*` | GPT models via API |
 | **Anthropic** | `anthropic/*` | Claude models via API |
 
@@ -72,21 +72,21 @@ This configuration uses **free models from OpenCode Zen** - no API keys needed:
 ```json
 {
   "agents": {
-    "sisyphus": { "model": "opencode/big-pickle" },
-    "oracle": { "model": "opencode/big-pickle" },
-    "librarian": { "model": "opencode/big-pickle" },
+    "sisyphus": { "model": "minimax-m2.5-free" },
+    "oracle": { "model": "minimax-m2.5-free" },
+    "librarian": { "model": "minimax-m2.5-free" },
     "explore": { "model": "opencode/gpt-5-nano" },
-    "metis": { "model": "opencode/big-pickle" },
-    "momus": { "model": "opencode/big-pickle" }
+    "metis": { "model": "minimax-m2.5-free" },
+    "momus": { "model": "minimax-m2.5-free" }
   },
   "categories": {
-    "visual-engineering": { "model": "opencode/big-pickle" },
-    "ultrabrain": { "model": "opencode/big-pickle" },
-    "deep": { "model": "opencode/big-pickle" },
+    "visual-engineering": { "model": "minimax-m2.5-free" },
+    "ultrabrain": { "model": "minimax-m2.5-free" },
+    "deep": { "model": "minimax-m2.5-free" },
     "quick": { "model": "opencode/gpt-5-nano" },
     "unspecified-low": { "model": "opencode/gpt-5-nano" },
-    "unspecified-high": { "model": "opencode/big-pickle" },
-    "artistry": { "model": "opencode/big-pickle" }
+    "unspecified-high": { "model": "minimax-m2.5-free" },
+    "artistry": { "model": "minimax-m2.5-free" }
   }
 }
 ```
@@ -95,29 +95,29 @@ This configuration uses **free models from OpenCode Zen** - no API keys needed:
 
 | Agent | Model | Purpose | When to Use |
 | :--- | :--- | :--- | :--- |
-| **sisyphus** | big-pickle | Main orchestrator | Most tasks - the default worker |
-| **oracle** | big-pickle | Debugging & architecture | Complex bugs, design decisions |
-| **librarian** | big-pickle | Documentation lookup | Finding library docs, examples |
+| **sisyphus** | minimax-m2.5-free | Main orchestrator | Most tasks - the default worker |
+| **oracle** | minimax-m2.5-free | Debugging & architecture | Complex bugs, design decisions |
+| **librarian** | minimax-m2.5-free | Documentation lookup | Finding library docs, examples |
 | **explore** | gpt-5-nano | Fast codebase search | Quick lookups, pattern finding |
-| **metis** | big-pickle | Pre-planning analysis | Before complex implementations |
-| **momus** | big-pickle | Plan review/critique | After significant work, before delivery |
+| **metis** | minimax-m2.5-free | Pre-planning analysis | Before complex implementations |
+| **momus** | minimax-m2.5-free | Plan review/critique | After significant work, before delivery |
 
 ### Model Selection Rationale
 
 | Model | Why for Specific Agents |
 | :--- | :--- |
-| **big-pickle** | 12.3% error rate, fastest (1m 17s), researches first via Exa |
-| **opencode/big-pickle** | 6.3% error rate - use when highest accuracy needed |
-| **gpt-5-nano** | Fast and free - perfect for quick exploration tasks |
+| **minimax-m2.5-free** | 6.3% error rate (most accurate free model), slower but reliable |
+| **opencode/gpt-5-nano** | Fast and free - perfect for quick exploration tasks |
+| **minimax-m2.5-free** | 6.3% error rate, most accurate - use for critical tasks |
 
-**Why big-pickle** (based on benchmarks):
-- Fastest to complete tasks (1m 17s vs 1m 35s)
-- **Research-first approach** - Uses Exa Code Search before coding
-- 12.3% error rate - still very usable for most daily tasks
+**Why minimax-m2.5-free** (based on benchmarks):
+- **Most accurate** - 6.3% error rate (2x better than big-pickle at 12.3%)
+- **Reliable** - Better for reasoning-heavy tasks
+- **Trade-off** - Slower (1m 35s vs 1m 17s)
 
-**When to use opencode/big-pickle instead:**
-- Strict tasks requiring higher accuracy (6.3% vs 12.3%)
-- Migration maps, schema generation, structured outputs
+**When to use gpt-5-nano instead:**
+- Quick lookups, fast pattern finding
+- Non-critical exploration tasks
 
 ### Category Model Mapping
 
@@ -125,13 +125,11 @@ When you use `task(category="...")`, OpenCode routes to these models:
 
 | Category | Model | Best For | Example Tasks |
 | :--- | :--- | :--- | :--- |
-| **visual-engineering** | opencode/big-pickle | Frontend, UI/UX | React components, CSS, layouts |
-| **ultrabrain** | opencode/big-pickle | Hard logic | Algorithms, optimizations, complex refactoring |
-| **deep** | opencode/big-pickle | Research | Investigating libraries, patterns, new technologies |
-| **quick** | gpt-5-nano | Trivial tasks | Typos, small fixes, simple edits |
-| **unspecified-low** | gpt-5-nano | Low effort | Simple changes |
-| **unspecified-high** | opencode/big-pickle | Complex unknown | Ambiguous requirements |
-| **artistry** | opencode/big-pickle | Creative | Unconventional solutions, novel approaches |
+| **visual-engineering** | minimax-m2.5-free | Frontend, UI/UX | React components, CSS, layouts |
+| **ultrabrain** | minimax-m2.5-free | Hard logic | Algorithms, optimizations, complex refactoring |
+| **deep** | minimax-m2.5-free | Research | Investigating libraries, patterns, new technologies |
+| **unspecified-high** | minimax-m2.5-free | Complex unknown | Ambiguous requirements |
+| **artistry** | minimax-m2.5-free | Creative | Unconventional solutions, novel approaches |
 
 ---
 
@@ -207,7 +205,7 @@ The "Seatbelt Pattern" is the community-recommended approach to permissions:
 | **Open-weight first** | Prefer open models over closed APIs |
 
 **Recommended free models**:
-- `opencode/big-pickle` - Best overall (6.3% error rate on benchmarks)
+- `minimax-m2.5-free` - Most accurate (6.3% error rate on benchmarks)
 - `gpt-5-nano` - Fast and free for simple tasks
 - `nemotron-3-super-free` - Strong alternative (9.0% error rate)
 

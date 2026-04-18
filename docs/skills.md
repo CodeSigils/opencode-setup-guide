@@ -237,8 +237,27 @@ The OpenCode community has created many useful skills. Here are the recommended 
 | **github-ops** | chandima | GitHub operations (PRs, issues) | chandima/opencode-config |
 | **security-auditor** | chandima | Security scanning | chandima/opencode-config |
 | **staff-pr-review** | spartandingo | PR reviews from staff engineer | spartandingo/opencode-skills |
-| **docker-compose** | Community | Docker Compose patterns | (search opencode-config) |
-| **test-patterns** | Community | Testing conventions | (search opencode-config) |
+| **docker-compose** | Community | Docker Compose patterns | chandima/opencode-config |
+| **test-patterns** | Community | Testing conventions | chandima/opencode-config |
+| **production-hardening** | chandima | Resilience, retries, timeouts | chandima/opencode-config |
+| **planning-doc** | chandima | PLAN.md creation | chandima/opencode-config |
+| **mcporter** | chandima | MCP server discovery/execution | chandima/opencode-config |
+| **markdown-lint** | Custom | Markdown linting | N/A |
+| **skill-creator** | antongulin | Skill scaffolding | antongulin/opencode-skill-creator |
+| **agent-browser** | Custom | Browser automation | N/A |
+
+### Additional Community Skills
+
+| Skill | Source | Purpose |
+| :--- | :--- | :--- |
+| **express-api** | Community | Express.js REST APIs |
+| **react-hooks** | Community | React hooks patterns |
+| **nextjs-routes** | Community | Next.js routing patterns |
+| **prisma-queries** | Community | Prisma ORM patterns |
+| **tailwindcss** | Community | Tailwind CSS utilities |
+| **zod-validation** | Community | Zod schema patterns |
+| **pino-logging** | Community | Pino logger integration |
+| **grpc-services** | Community | gRPC service definitions |
 
 ### Installing Community Skills
 

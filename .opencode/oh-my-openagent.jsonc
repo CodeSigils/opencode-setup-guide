@@ -1,0 +1,136 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-openagent.schema.json",
+  "agents": {
+    // Main orchestrator: minimax-free (best quality) → big-pickle (fast) → nano (fallback)
+    "sisyphus": {
+      "model": "opencode/minimax-m2.5-free",
+      "fallback_models": [
+        "opencode/big-pickle",
+        "opencode/gpt-5-nano"
+      ],
+      "prompt_append": "file://~/.config/opencode/directives.md"
+    },
+    // Oracle: Big Pickle for speed-critical debugging
+    "oracle": {
+      "model": "opencode/big-pickle",
+      "fallback_models": [
+        "opencode/minimax-m2.5-free"
+      ],
+      "prompt_append": "file://~/.config/opencode/directives.md"
+    },
+    // Librarian: Big Pickle for docs
+    "librarian": {
+      "model": "opencode/big-pickle",
+      "fallback_models": [
+        "opencode/gpt-5-nano"
+      ]
+    },
+    // Prometheus: minimax-free for planning
+    "prometheus": {
+      "model": "opencode/minimax-m2.5-free",
+      "fallback_models": [
+        "opencode/big-pickle"
+      ]
+    },
+    // Metis: Big Pickle for plan review
+    "metis": {
+      "model": "opencode/big-pickle",
+      "fallback_models": [
+        "opencode/minimax-m2.5-free"
+      ]
+    },
+    // Atlas: Big Pickle for todo orchestration
+    "atlas": {
+      "model": "opencode/big-pickle",
+      "fallback_models": [
+        "opencode/gpt-5-nano"
+      ]
+    },
+    // Momus: Big Pickle for review
+    "momus": {
+      "model": "opencode/big-pickle",
+      "fallback_models": [
+        "opencode/minimax-m2.5-free"
+      ]
+    },
+    // Hephaestus: GPT-Nano for fast deep work
+    "hephaestus": {
+      "model": "opencode/gpt-5-nano"
+    },
+    // Explore: GPT-Nano for fast search
+    "explore": {
+      "model": "opencode/gpt-5-nano",
+      "fallback_models": [
+        "opencode/big-pickle"
+      ]
+    },
+    // Multimodal-Looker: GPT-Nano for vision
+    "multimodal-looker": {
+      "model": "opencode/gpt-5-nano",
+      "fallback_models": [
+        "opencode/big-pickle"
+      ]
+    },
+    // Sisyphus-Junior: GPT-Nano for trivial
+    "sisyphus-junior": {
+      "model": "opencode/gpt-5-nano"
+    }
+  },
+  "categories": {
+    // Visual: Big Pickle for frontend
+    "visual-engineering": {
+      "model": "opencode/big-pickle",
+      "fallback_models": [
+        "opencode/minimax-m2.5-free"
+      ]
+    },
+    // Ultra Brain: Big Pickle for hard logic
+    "ultrabrain": {
+      "model": "opencode/big-pickle",
+      "fallback_models": [
+        "opencode/minimax-m2.5-free"
+      ]
+    },
+    // Deep: minimax-free for research-heavy
+    "deep": {
+      "model": "opencode/minimax-m2.5-free",
+      "fallback_models": [
+        "opencode/big-pickle"
+      ]
+    },
+    // Artistry: Big Pickle for creative
+    "artistry": {
+      "model": "opencode/big-pickle",
+      "fallback_models": [
+        "opencode/gpt-5-nano"
+      ]
+    },
+    // Quick: GPT-Nano for trivial
+    "quick": {
+      "model": "opencode/gpt-5-nano"
+    },
+    // Unspecified-Low: GPT-Nano
+    "unspecified-low": {
+      "model": "opencode/gpt-5-nano"
+    },
+    // Unspecified-High: Big Pickle for complex
+    "unspecified-high": {
+      "model": "opencode/big-pickle",
+      "fallback_models": [
+        "opencode/minimax-m2.5-free"
+      ]
+    },
+    // Writing: Big Pickle for docs
+    "writing": {
+      "model": "opencode/big-pickle",
+      "fallback_models": [
+        "opencode/gpt-5-nano"
+      ]
+    }
+  },
+  "sisyphus": {
+    "enabled": true,
+    "max_concurrent_tasks": 2,
+    "task_timeout": 300
+  }
+}
