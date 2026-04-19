@@ -98,36 +98,45 @@ This skill lints markdown files for style and syntax issues using markdownlint.
 ## What I Do
 
 I run markdownlint on the specified file to check for:
+
 - Code block syntax errors
 - Heading hierarchy issues
 - Link issues (broken, empty)
 - Table formatting issues
+- GFM (GitHub Flavored Markdown) compliance
 
 ## Usage
 
 Run on a specific file:
+
 ```bash
 npx markdownlint README.md
 ```
 
 Run on all markdown files:
+
 ```bash
 npx markdownlint "**/*.md"
 ```
 
-## Configuration
+## Installation
 
-Create `.markdownlint.json` in project root:
-```json
-{
-  "MD013": false,
-  "MD033": false,
-  "MD041": false
-}
+The skill uses markdownlint-cli which is typically already installed. If not:
+
+```bash
+npm install -g markdownlint-cli
 ```
+
+## Common Issues Fixed
+
+1. **Code blocks**: Use proper syntax highlighting (e.g., "```json", not "```")
+2. **Headings**: Don't skip levels (## then ###, not # then ###)
+3. **Tables**: Must have | :--- | header row
+4. **Links**: Don't have empty link text or URLs
 ```
 
 This skill is practical because it:
+
 1. Uses an existing npm tool (markdownlint-cli)
 2. Enforces consistent markdown style
 3. Can run on-demand when editing `.md` files
@@ -232,7 +241,8 @@ The OpenCode community has created many useful skills. Here are the recommended 
 
 | Skill | Source | Purpose | GitHub |
 | :--- | :--- | :--- | :--- |
-| **code-checklist** | Custom | Your team's 17 directive rules | N/A |
+| **code-checklist** | Custom | 16 directive rules for code delivery | Local |
+| **markdown-lint** | Custom | Markdown linting with markdownlint | Local |
 | **context7-docs** | chandima | Official docs lookup via Context7 | chandima/opencode-config |
 | **github-ops** | chandima | GitHub operations (PRs, issues) | chandima/opencode-config |
 | **security-auditor** | chandima | Security scanning | chandima/opencode-config |
@@ -242,9 +252,8 @@ The OpenCode community has created many useful skills. Here are the recommended 
 | **production-hardening** | chandima | Resilience, retries, timeouts | chandima/opencode-config |
 | **planning-doc** | chandima | PLAN.md creation | chandima/opencode-config |
 | **mcporter** | chandima | MCP server discovery/execution | chandima/opencode-config |
-| **markdown-lint** | Custom | Markdown linting | N/A |
 | **skill-creator** | antongulin | Skill scaffolding | antongulin/opencode-skill-creator |
-| **agent-browser** | Custom | Browser automation | N/A |
+| **agent-browser** | Custom | Browser automation | Local |
 
 ### Additional Community Skills
 

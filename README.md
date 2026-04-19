@@ -61,17 +61,21 @@ This configuration uses **free open-weight models** from OpenCode Zen - no paid 
 
 | Model | Purpose | Benchmark |
 | :--- | :--- | :--- |
-| **minimax-m2.5-free** | Main reasoning (default) | 6.3% error rate, most accurate |
-| **gpt-5-nano** | Quick tasks (free, built-in) | N/A |
+| **minimax-m2.5-free** | Primary reasoning (Sisyphus default) | 6.3% error rate, best accuracy |
+| **big-pickle** | Complex reasoning (Oracle default) | 12.3% error rate, deep analysis |
+| **gpt-5-nano** | Quick tasks (fallback, built-in) | N/A |
+
+**Model fallbacks** (configured per agent):
+- **Sisyphus** (main orchestrator): minimax-m2.5-free → big-pickle → gpt-5-nano
+- **Oracle** (debugging/architecture): big-pickle → minimax-m2.5-free
+- **Librarian/Explore** (search): big-pickle → gpt-5-nano → minimax-m2.5-free
 
 Based on [LLM benchmarks](https://www.glukhov.org/ai-devtools/opencode/llms-comparison/), minimax-m2.5-free is the most accurate free model (6.3% error rate).
 
-**Why minimax-m2.5-free?** (vs big-pickle at 12.3%):
-- **Most accurate** - 6.3% error rate (2x better than big-pickle)
-- **Better reasoning** - For complex tasks
-- **Trade-off** - Slower (1m 35s vs 1m 17s)
-
-**When to use gpt-5-nano instead:** Quick lookups, fast exploration.
+**When to use each model:**
+- **minimax-m2.5-free** - Complex reasoning, planning, implementation
+- **big-pickle** - Architecture decisions, debugging, deep analysis
+- **gpt-5-nano** - Quick lookups, simple fixes, fast exploration
 
 **Why free models?**
 - Free to use - no API costs
