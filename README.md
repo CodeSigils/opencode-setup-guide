@@ -147,7 +147,6 @@ Plugins extend functionality. Just add to config - no `npm install` needed:
 - OpenCode installed
 - Node.js 25+ (or bun 1.3+)
 - ripgrep (optional, better search)
-- markdownlint-cli (for linting)
 - mise (optional, version manager)
 
 ### Quality Assurance
