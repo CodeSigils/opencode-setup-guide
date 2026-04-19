@@ -4,7 +4,7 @@
 
 This comprehensive guide covers the complete setup of OpenCode with plugins, custom models, persistent directives, skills, and anti-patterns system. It's designed to help you configure and use OpenCode effectively for production development.
 
-> **Learning Tip**: This guide assumes you understand basic CLI tools and have used an AI coding assistant before. If you're new to AI coding, start with the [README](../README.md) to understand core concepts first.
+> **Learning Tip**: This guide assumes you understand basic CLI tools and have used an AI coding assistant before. If you're new to AI coding, start with the [README](https://github.com/CodeSigils/opencode-setup-guide/blob/main/README.md) to understand core concepts first.
 
 ---
 

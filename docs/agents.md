@@ -23,7 +23,7 @@ OpenCode's power lies in its **agent specialization**. Instead of one AI doing e
 
 ## Prerequisites
 
-1. **OpenCode** installed (v1.0.133+)
+1. **OpenCode** installed (v1.14.17+)
 2. **oh-my-openagent** plugin installed (add to `plugin` in opencode.json)
 3. Basic understanding of JSON configuration
 
@@ -111,11 +111,13 @@ This configuration uses **free models from OpenCode Zen** - no API keys needed:
 | **minimax-m2.5-free** | 6.3% error rate, most accurate - use for critical tasks |
 
 **Why minimax-m2.5-free** (based on benchmarks):
+
 - **Most accurate** - 6.3% error rate (2x better than big-pickle at 12.3%)
 - **Reliable** - Better for reasoning-heavy tasks
 - **Trade-off** - Slower (1m 35s vs 1m 17s)
 
 **When to use gpt-5-nano instead:**
+
 - Quick lookups, fast pattern finding
 - Non-critical exploration tasks
 
@@ -242,14 +244,17 @@ opencode --reload
 ## Troubleshooting
 
 ### Config not loading?
-- Ensure OpenCode v1.0.133+
-- Validate JSON: `python3 -m json.tool ~/.config/opencode/oh-my-opencode.json`
+
+- Ensure OpenCode v1.14.17+
+- Validate JSON: `python3 -m json.tool ~/.config/opencode/oh-my-open-code.json`
 
 ### Model not available?
+
 - Check: `opencode models` shows all available
 - Ensure model name matches exactly (case-sensitive)
 
 ### Permission denied?
+
 - Edit `~/.opencode/opencode.json` permissions section
 - Use `"ask"` for commands you want to approve per-session
 
