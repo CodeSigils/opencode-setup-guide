@@ -22,6 +22,9 @@ This comprehensive guide covers the complete setup of OpenCode with plugins, cus
 10. [Complete Installation Guide](#10-complete-installation-guide)
 11. [Troubleshooting](#11-troubleshooting)
 12. [Sources and References](#12-sources-and-references)
+13. [Video Resources](#13-video-resources)
+14. [Link Checker](#14-link-checker)
+15. [Maintenance Tips](#15-maintenance-tips)
 
 ---
 
@@ -955,6 +958,76 @@ For a curated list of OpenCode resources, configurations, and community tools, s
 | Search memory | Use `memory({ mode: "search" })` |
 | Check footguns | Use grep or memory search |
 | Update docs | Edit ~/Notes/opencode/setup.md |
+
+---
+
+## 13. Video Resources
+
+### Recommended YouTube Tutorials
+
+| Video | Channel | Duration | Level |
+| :--- | :--- | :--- | :--- |
+| [OpenCode Tutorial for Beginners: Learn 90% in 25 Minutes](https://www.youtube.com/watch?v=QzqaZshQcJI) | Brandon Melville | 24:03 | Beginner |
+| [15 Minutes to Fix Your AI Dev Workflow](https://www.youtube.com/watch?v=EOIzFMdmox8) | Darren Builds AI | 14:30 | Advanced |
+| [OpenCode: FASTEST AI Coder + Opensource](https://www.youtube.com/watch?v=hJm_iVhQD6Y) | WorldofAI | 10:34 | Beginner |
+| [Setup OpenCode on Ubuntu Linux](https://www.youtube.com/watch?v=dRkg_eV1Ifg) | ProgrammingKnowledge | 15:28 | Beginner |
+| [OpenCode: FAST, Open Source and Intuitive AI Coder](https://www.youtube.com/watch?v=yyBm_K8xpAk) | Code With Nathan | ~15:00 | Beginner |
+
+### Video Summaries
+
+**Learn 90% of OpenCode in 25 Minutes**
+- Covers installation, core concepts (agents, rules, extensions)
+- Demo creating Flask web app
+- Skills and commands explanation
+- Best for beginners
+
+**15 Minutes to Fix Your AI Dev Workflow**
+- Multi-agent architecture
+- Sub-agents setup (code review, testing, docs)
+- Context-aware coordination
+- Best for advanced users
+
+---
+
+## 14. Link Checker
+
+### Manual Link Check
+
+```bash
+# Check all links in markdown files
+npx markdown-link-check README.md --level failure
+
+# Or use linkinator
+npx linkinator "https://github.com/CodeSigils/opencode-setup-guide" --recurse --skip "(google|localhost)"
+```
+
+### Add to Pre-commit Hook
+
+Create `.github/check-links.sh`:
+
+```bash
+#!/bin/bash
+# Check all markdown links
+npx markdown-link-check docs/*.md --level failure || exit 1
+```
+
+Make executable: `chmod +x .github/check-links.sh`
+
+Add to `.github/hooks/pre-commit`:
+
+```bash
+#!/bin/bash
+./.github/check-links.sh
+```
+
+---
+
+## 15. Maintenance Tips
+
+- **Update quarterly**: Check for new versions, features, and video content
+- **Verify links monthly**: Use link checker or manual spot-check
+- **Check OpenCode version**: `opencode --version`
+- **Sync with repo**: Pull latest from `opencode-setup-guide`
 
 ---
 
