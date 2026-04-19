@@ -972,6 +972,8 @@ For a curated list of OpenCode resources, configurations, and community tools, s
 | [OpenCode: FASTEST AI Coder + Opensource](https://www.youtube.com/watch?v=hJm_iVhQD6Y) | WorldofAI | 10:34 | Beginner |
 | [Setup OpenCode on Ubuntu Linux](https://www.youtube.com/watch?v=dRkg_eV1Ifg) | ProgrammingKnowledge | 15:28 | Beginner |
 | [OpenCode: FAST, Open Source and Intuitive AI Coder](https://www.youtube.com/watch?v=yyBm_K8xpAk) | Code With Nathan | ~15:00 | Beginner |
+| [OpenCode CRASH Course - Complete Tutorial](https://www.youtube.com/watch?v=WXffHkvfRpM) | Data Science Basics | 1:00:46 | Beginner |
+| [How to use OpenCode](https://www.youtube.com/watch?v=Jvonogc8MPg) | Riccardo Bellomi | 11:45 | Beginner |
 
 ### Video Summaries
 
@@ -986,6 +988,29 @@ For a curated list of OpenCode resources, configurations, and community tools, s
 - Sub-agents setup (code review, testing, docs)
 - Context-aware coordination
 - Best for advanced users
+
+### Online Courses
+
+| Course | Platform | Duration | Level |
+| :--- | :--- | :--- | :--- |
+| [The Complete AI Coding Course (2025)](https://www.udemy.com/course/the-complete-ai-coding-course-2025-cursor-ai-v0-vercel/) | Udemy | 11h 48m | Beginner |
+| [Vibe Coding with Claude Code & OpenCode](https://www.udemy.com/course/ai-driven-development-with-claude-code-cli-and-opencode/) | Udemy | 1h 50m | Beginner |
+| [OpenCode: The Complete Guide](https://www.educative.io/courses/learn-opencode) | Educative | 2h | Intermediate |
+
+**Udemy Course Highlights:**
+
+- "The Complete AI Coding Course" - Covers Cursor, Claude Code, OpenCode, v0, Replit
+- 12+ hours of content, updated July 2025
+- 17,696 students, 4.4 rating
+- "Vibe Coding with OpenCode" - Hands-on project building
+
+### GitHub Learning Resources
+
+| Repository | Stars | Description |
+| :--- | :--- | :--- |
+| [wesammustafa/OpenCode-Everything-You-Need-to-Know](https://github.com/wesammustafa/OpenCode-Everything-You-Need-to-Know) | Latest | Comprehensive guide: Zen, TUI, agents, skills, MCP |
+| [opencode-ai/opencode](https://github.com/opencode-ai/opencode) | 12K+ | Official Go implementation |
+| [sudarshan-koirala/llm-resources](https://github.com/sudarshan-koirala/llm-resources/blob/main/opencode.md) | Latest | OpenCode resource collection |
 
 ---
 
