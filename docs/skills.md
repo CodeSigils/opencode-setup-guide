@@ -272,10 +272,10 @@ The OpenCode community has created many useful skills. Here are the recommended 
 
 ```bash
 # Clone the community config
-git clone https://github.com/chandima/opencode-config.git ~/projects/opencode-config
+git clone https://github.com/chandima/opencode-config.git /tmp/opencode-config
 
-# Link skills to your global skills folder
-ln -s ~/projects/opencode-config/skills/* ~/.config/opencode/skills/
+# Copy skills to your global skills folder (direct directories, not symlinks)
+cp -r /tmp/opencode-config/skills/* ~/.config/opencode/skills/
 
 # Verify
 ls -la ~/.config/opencode/skills/
@@ -286,8 +286,8 @@ ls -la ~/.config/opencode/skills/
 For comprehensive workflow methodology (157k+ stars), add superpowers:
 
 ```bash
-git clone https://github.com/obra/superpowers.git ~/projects/superpowers
-ln -s ~/projects/superpowers/skills/* ~/.config/opencode/skills/
+git clone https://github.com/obra/superpowers.git /tmp/superpowers
+cp -r /tmp/superpowers/skills/* ~/.config/opencode/skills/
 ```
 
 > **Note**: superpowers works with multiple AI assistants (Claude, Codex, Cursor), not just OpenCode. It's a methodology first, not OpenCode-specific.
@@ -353,15 +353,15 @@ Create a skill that helps with Docker compose
 ### Clone Community Skills
 
 ```bash
-git clone https://github.com/chandima/opencode-config.git ~/projects/opencode-config
-ln -s ~/projects/opencode-config/skills/* ~/.config/opencode/skills/
+git clone https://github.com/chandima/opencode-config.git /tmp/opencode-config
+cp -r /tmp/opencode-config/skills/* ~/.config/opencode/skills/
 ```
 
 ### superpowers (Optional)
 
 ```bash
-git clone https://github.com/obra/superpowers.git ~/projects/superpowers
-ln -s ~/projects/superpowers/skills/* ~/.config/opencode/skills/
+git clone https://github.com/obra/superpowers.git /tmp/superpowers
+cp -r /tmp/superpowers/skills/* ~/.config/opencode/skills/
 ```
 
 ---

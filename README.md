@@ -16,13 +16,13 @@ A hands-on guide for configuring OpenCode as your AI coding assistant. This repo
 # Clone this repo
 git clone https://github.com/YOUR_USERNAME/opencode-setup-guide.git ~/opencode-setup
 
-# Link configuration
-ln -sf ~/opencode-setup/.opencode/opencode.json ~/.config/opencode/opencode.json
-ln -sf ~/opencode-setup/.opencode/oh-my-openagent.json ~/.config/opencode/oh-my-openagent.json
-ln -sf ~/opencode-setup/.opencode/directives.md ~/.config/opencode/directives.md
+# Copy configuration files (not symlinks)
+cp ~/opencode-setup/.opencode/opencode.json ~/.config/opencode/
+cp ~/opencode-setup/.opencode/oh-my-openagent.json ~/.config/opencode/
+cp ~/opencode-setup/.opencode/directives.md ~/.config/opencode/
 
-# Link skills
-ln -s ~/opencode-setup/skills/* ~/.config/opencode/skills/
+# Copy skills (direct directories, not symlinks)
+cp -r ~/opencode-setup/skills/* ~/.config/opencode/skills/
 ```
 
 See [SETUP.md](SETUP.md) for detailed installation steps.

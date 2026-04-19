@@ -17,31 +17,31 @@ git clone https://github.com/YOUR_USERNAME/opencode-setup-guide.git ~/opencode-s
 cd ~/opencode-setup
 ```
 
-### Step 2: Link Configuration
+### Step 2: Copy Configuration
 
 ```bash
-# Link main config
-ln -sf ~/opencode-setup/.opencode/opencode.json ~/.config/opencode/opencode.json
+# Copy main config
+cp ~/opencode-setup/.opencode/opencode.json ~/.config/opencode/
 
-# Link agent config (or merge with existing)
-ln -sf ~/opencode-setup/.opencode/oh-my-openagent.json ~/.config/opencode/oh-my-openagent.json
+# Copy agent config (or merge with existing)
+cp ~/opencode-setup/.opencode/oh-my-openagent.json ~/.config/opencode/
 ```
 
 ### Step 3: Install Skills
 
 ```bash
-# Link community skills
-git clone https://github.com/chandima/opencode-config.git ~/projects/opencode-config
-ln -s ~/projects/opencode-config/skills/* ~/.config/opencode/skills/
+# Copy community skills (direct directories, not symlinks)
+git clone https://github.com/chandima/opencode-config.git /tmp/opencode-config
+cp -r /tmp/opencode-config/skills/* ~/.config/opencode/skills/
 
-# Link your custom skills
-ln -s ~/opencode-setup/skills/code-checklist ~/.config/opencode/skills/
+# Copy your custom skills
+cp -r ~/opencode-setup/skills/* ~/.config/opencode/skills/
 ```
 
-### Step 4: Link Directives
+### Step 4: Copy Directives
 
 ```bash
-ln -sf ~/opencode-setup/.opencode/directives.md ~/.config/opencode/directives.md
+cp ~/opencode-setup/.opencode/directives.md ~/.config/opencode/
 ```
 
 ### Step 5: Restart OpenCode
@@ -81,9 +81,9 @@ Edit `~/.config/opencode/directives.md` to add your own rules.
 Add more skills to `~/.config/opencode/skills/`:
 
 ```bash
-# Clone more skills
-git clone https://github.com/other/skills.git ~/skills
-ln -s ~/skills/* ~/.config/opencode/skills/
+# Clone and copy skills (direct directories, not symlinks)
+git clone https://github.com/other/skills.git /tmp/other-skills
+cp -r /tmp/other-skills/* ~/.config/opencode/skills/
 ```
 
 ## What's Included

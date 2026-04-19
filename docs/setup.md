@@ -601,8 +601,8 @@ Use this skill when [specific trigger situation].
 ### 5.6 Installing Skills
 
 ```bash
-git clone https://github.com/chandima/opencode-config.git ~/projects/opencode-config
-ln -s ~/projects/opencode-config/skills/* ~/.config/opencode/skills/
+git clone https://github.com/chandima/opencode-config.git /tmp/opencode-config
+cp -r /tmp/opencode-config/skills/* ~/.config/opencode/skills/
 ```
 
 ### 5.7 Using Skills
@@ -854,8 +854,8 @@ cp oh-my-openagent.json ~/.config/opencode/
 cp ``directives.md`` ~/.config/opencode/
 
 # 3. Clone community skills
-git clone https://github.com/chandima/opencode-config.git ~/projects/opencode-config
-ln -s ~/projects/opencode-config/skills/* ~/.config/opencode/skills/
+git clone https://github.com/chandima/opencode-config.git /tmp/opencode-config
+cp -r /tmp/opencode-config/skills/* ~/.config/opencode/skills/
 
 # 4. Create memory config
 cat > ~/.config/opencode/opencode-mem.jsonc << 'EOF'
