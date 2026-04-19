@@ -835,8 +835,9 @@ Before delivering ANY code, verify:
 ### 10.1 Prerequisites
 
 - OpenCode installed
-- Node.js 18+
+- Node.js 25+ (or bun 1.3+)
 - ripgrep (optional but recommended)
+- mise (optional, version manager)
 
 ### 10.2 Step-by-Step Installation
 
